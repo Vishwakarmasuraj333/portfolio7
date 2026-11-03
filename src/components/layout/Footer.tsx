@@ -1,115 +1,75 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
-import { Github, Linkedin, Mail, Phone, ArrowUp, Heart, FileText } from "lucide-react";
+import {
+  DoodleSmiley,
+  DoodleHeart,
+  DoodleLightning,
+  DoodleStar,
+} from "../ui/Doodles";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 
 export function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#0C162C] text-slate-300 overflow-hidden">
-      {/* Top subtle organic wave */}
-      <div className="w-full overflow-hidden leading-none">
-        <svg
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          className="relative block w-full h-12 text-[#FAF7F2] dark:text-[#0E1528] fill-current"
-        >
-          <path d="M0,0 C150,90 350,-40 500,40 C650,120 900,10 1200,30 L1200,0 L0,0 Z" />
-        </svg>
-      </div>
+    <footer className="relative bg-[#1749E8] text-white border-t-4 border-[#151515] overflow-hidden pt-14 sm:pt-16 pb-12 select-none">
+      {/* Subtle grid pattern background */}
+      <div
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
-          {/* Column 1: Monogram & Bio */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-slate-800 border border-slate-700">
-                <span className="font-black text-base text-white font-sans">
-                  SV
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-10 sm:pb-12 border-b-2 border-white/20 items-start">
+          {/* Left Column: Brand, Bio & Credit */}
+          <div className="lg:col-span-5 flex flex-col items-start space-y-4">
+            <Link
+              href="#home"
+              className="flex items-center gap-2 group focus:outline-none"
+              aria-label="Suraj Vishwakarma - Back to Top"
+            >
+              <div className="flex flex-col text-left leading-none">
+                <div className="flex items-center gap-2">
+                  <span className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight group-hover:text-[#FFD52E] transition-colors">
+                    SURAj
+                  </span>
+                  <DoodleSmiley className="w-6 h-6 group-hover:rotate-45 group-hover:scale-125 transition-transform duration-200" />
+                </div>
+                <span className="font-display font-extrabold text-xs sm:text-sm text-[#FFD52E] tracking-widest uppercase">
+                  VISHWAKARMA
                 </span>
               </div>
-              <div className="flex flex-col text-left pl-2 border-l border-slate-700">
-                <span className="font-bold text-base text-white leading-tight">
-                  Suraj Vishwakarma
-                </span>
-                <span className="text-xs text-rose-400 font-medium">
-                  Full Stack Developer
-                </span>
-              </div>
-            </div>
+            </Link>
 
-            <p className="text-sm text-slate-400 max-w-sm leading-relaxed font-normal pt-2">
-              Building clean, scalable, and user-friendly digital products that solve real-world problems.
+            <p className="text-white/85 text-xs sm:text-sm font-medium leading-relaxed max-w-sm">
+              Full-Stack Developer passionate about building responsive web applications, practical digital products, and useful AI-powered experiences.
             </p>
 
-            <div className="flex items-center gap-2.5 pt-2">
-              <a
-                href={siteConfig.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Profile"
-                title="GitHub: Vishwakarmasuraj333"
-                className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-rose-500 transition-colors"
-              >
-                <Github className="w-4 h-4" />
-              </a>
-
-              <a
-                href={siteConfig.links.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn Profile"
-                title="LinkedIn: suraj-vishwakarma"
-                className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-[#0077B5] transition-colors"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-
-              <a
-                href={siteConfig.links.email}
-                aria-label="Email"
-                title="Email: itxsurajofficial@gmail.com"
-                className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-rose-500 transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-              </a>
-
-              <a
-                href={siteConfig.links.phone}
-                aria-label="Phone"
-                title="Phone: +91 93709 44696"
-                className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-emerald-600 transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-              </a>
-
-              <a
-                href={siteConfig.links.resume}
-                download="Suraj_Vishwakarma_Resume.pdf"
-                aria-label="Download Resume"
-                title="Download Official Resume PDF"
-                className="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-rose-600 transition-colors"
-              >
-                <FileText className="w-4 h-4" />
-              </a>
+            <div className="pt-2">
+              <span className="font-mono text-xs text-[#FFD52E] bg-white/10 px-3 py-1 rounded-full border border-white/20 inline-block hover:bg-white/20 transition-colors">
+                {siteConfig.credit}
+              </span>
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
-              Quick Links
+          {/* Center Column: Quick Navigation Links */}
+          <div className="lg:col-span-3">
+            <h4 className="font-display font-black text-xs uppercase tracking-widest text-[#FFD52E] mb-4">
+              NAVIGATE
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm">
+            <ul className="space-y-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-white/90">
               {siteConfig.navLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-slate-400 hover:text-rose-400 transition-colors"
+                    className="hover:text-[#FFD52E] hover:translate-x-1.5 transition-all inline-block py-0.5"
                   >
                     {link.label}
                   </a>
@@ -118,92 +78,78 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Featured Projects */}
-          <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
-              Projects
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <li>
-                <a href="#projects" className="hover:text-rose-400 transition-colors">
-                  Portfolio Website
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="hover:text-rose-400 transition-colors">
-                  ToDo List App
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="hover:text-rose-400 transition-colors">
-                  Weather App
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="hover:text-rose-400 transition-colors">
-                  Admin Dashboard
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="hover:text-rose-400 transition-colors">
-                  Mini E-commerce UI
-                </a>
-              </li>
-            </ul>
-          </div>
+          {/* Right Column: Connect Links */}
+          <div className="lg:col-span-4 flex flex-col justify-between h-full space-y-6">
+            <div>
+              <h4 className="font-display font-black text-xs uppercase tracking-widest text-[#FFD52E] mb-4">
+                LET&apos;S CONNECT
+              </h4>
 
-          {/* Column 4: Contact Information */}
-          <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
-              Contact
-            </h4>
-            <div className="space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <div>
-                <span className="block text-[11px] text-slate-500 font-semibold uppercase">Email</span>
-                <a
-                  href={`mailto:${siteConfig.links.rawEmail}`}
-                  className="hover:text-rose-400 transition-colors break-all"
-                >
-                  {siteConfig.links.rawEmail}
-                </a>
+              <div className="space-y-2.5 text-xs sm:text-sm font-medium text-white/90">
+                <div className="flex items-center gap-2 group/item">
+                  <Mail className="w-4 h-4 text-[#FFD52E] group-hover/item:scale-125 transition-transform" />
+                  <a
+                    href={siteConfig.links.email}
+                    className="hover:underline text-white font-semibold"
+                  >
+                    {siteConfig.links.rawEmail}
+                  </a>
+                </div>
+
+                <div className="flex items-center gap-2 group/item">
+                  <Github className="w-4 h-4 text-[#FFD52E] group-hover/item:scale-125 transition-transform" />
+                  <a
+                    href={siteConfig.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    github.com/{siteConfig.links.githubUsername}
+                  </a>
+                </div>
+
+                <div className="flex items-center gap-2 group/item">
+                  <Linkedin className="w-4 h-4 text-[#FFD52E] group-hover/item:scale-125 transition-transform" />
+                  <a
+                    href={siteConfig.links.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    linkedin.com/in/{siteConfig.links.linkedinSlug}
+                  </a>
+                </div>
+
+                <div className="flex items-center gap-2 text-white/80">
+                  <MapPin className="w-4 h-4 text-[#FFD52E]" />
+                  <span>Bhayandar, Mumbai, Maharashtra</span>
+                </div>
               </div>
-              <div className="pt-1">
-                <span className="block text-[11px] text-slate-500 font-semibold uppercase">Phone</span>
-                <a
-                  href={`tel:${siteConfig.links.rawPhone.replace(/\s+/g, '')}`}
-                  className="hover:text-rose-400 transition-colors"
-                >
-                  {siteConfig.links.rawPhone}
-                </a>
-              </div>
-              <div className="pt-1">
-                <span className="block text-[11px] text-slate-500 font-semibold uppercase">Location</span>
-                <span>{siteConfig.location}</span>
-              </div>
-              <div className="pt-1">
-                <span className="block text-[11px] text-slate-500 font-semibold uppercase">Availability</span>
-                <span className="text-emerald-400 font-medium">Open to full-stack roles & projects</span>
-              </div>
+            </div>
+
+            {/* Playful White Sticker: "THANKS FOR STOPPING BY! <3" with hover bounce */}
+            <div className="self-start sm:self-auto inline-flex items-center gap-2.5 bg-white text-[#151515] px-4 py-2.5 rounded-2xl border-2 border-[#151515] shadow-sticker rotate-[-3deg] hover:rotate-0 hover:scale-105 hover:shadow-sticker-lg transition-all duration-200 cursor-pointer">
+              <span className="font-display font-black text-xs sm:text-sm uppercase tracking-wide">
+                THANKS FOR STOPPING BY!
+              </span>
+              <DoodleHeart className="w-4 h-4 text-[#F43B2F] animate-pulse" />
+              <DoodleLightning className="w-3 h-5 text-[#FFD52E]" />
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p className="flex items-center gap-1">
-            © {new Date().getFullYear()} {siteConfig.name}. Built with{" "}
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" /> & Next.js.
+        {/* Bottom Copyright & Disclaimer */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/75 gap-3">
+          <p>
+            &copy; {currentYear} Suraj Vishwakarma. All rights reserved.
           </p>
-
-          <button
-            onClick={scrollToTop}
-            type="button"
-            aria-label="Back to top"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-all text-xs font-semibold"
-          >
-            <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5" />
-          </button>
+          <div className="flex items-center gap-3 text-xs font-medium">
+            <span>Next.js 14 App Router</span>
+            <span>•</span>
+            <span>TypeScript</span>
+            <span>•</span>
+            <span>Tailwind CSS</span>
+          </div>
         </div>
       </div>
     </footer>

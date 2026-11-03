@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Fredoka, Caveat } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
-import { ThemeProvider } from "@/components/layout/ThemeContext";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
@@ -14,24 +13,39 @@ const fontSans = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+const fontDisplay = Fredoka({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["600", "700"],
+});
+
+const fontHandwriting = Caveat({
+  subsets: ["latin"],
+  variable: "--font-handwriting",
+  display: "swap",
+  weight: ["600", "700"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Suraj Vishwakarma | Full Stack Developer",
+    default: "Suraj Vishwakarma | Full-Stack Developer",
     template: "%s | Suraj Vishwakarma",
   },
   description:
-    "Motivated Full Stack Developer skilled in React, Next.js, Node.js, JavaScript (ES6+), and modern web architectures. B.Sc. IT (9.04 CGPA - A Grade) | University of Mumbai.",
+    "I'm Suraj Vishwakarma, a Full-Stack Developer passionate about building responsive web applications, practical digital products, and useful AI-powered experiences. B.Sc. IT (2025) & M.Sc. IT | Abhinav College, Bhayandar.",
   keywords: [
     "Suraj Vishwakarma",
-    "Full Stack Developer",
+    "Full-Stack Developer",
     "Next.js Developer",
     "React Developer",
     "Node.js Developer",
-    "JavaScript Developer",
-    "MERN Stack Developer",
+    "FastAPI",
+    "Python",
+    "Abhinav College",
+    "Bhayandar",
     "Mumbai Developer",
-    "University of Mumbai",
   ],
   authors: [{ name: "Suraj Vishwakarma", url: siteConfig.links.github }],
   creator: "Suraj Vishwakarma",
@@ -43,30 +57,30 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: "Suraj Vishwakarma | Full Stack Developer",
+    title: "Suraj Vishwakarma | Full-Stack Developer",
     description:
-      "I build digital products that people love. Full Stack Developer crafting fast, scalable & user-friendly web applications.",
+      "Building digital experiences that work. Full-Stack Developer crafting fast, responsive & reliable web applications.",
     siteName: siteConfig.name,
     images: [
       {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "Suraj Vishwakarma — Full Stack Developer",
+        alt: "Suraj Vishwakarma — Full-Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Suraj Vishwakarma | Full Stack Developer",
+    title: "Suraj Vishwakarma | Full-Stack Developer",
     description:
-      "I build digital products that people love. Full Stack Developer crafting fast, scalable & user-friendly web applications.",
+      "Building digital experiences that work. Full-Stack Developer crafting fast, responsive & reliable web applications.",
     images: [siteConfig.ogImage],
   },
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
   },
 };
 
@@ -79,60 +93,47 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Suraj Vishwakarma",
-    jobTitle: "Full Stack Developer",
+    jobTitle: "Full-Stack Developer",
     url: siteConfig.url,
     sameAs: [siteConfig.links.github, siteConfig.links.linkedin],
     alumniOf: {
       "@type": "CollegeOrUniversity",
-      name: "University of Mumbai",
-      location: "Mumbai, Maharashtra, India",
+      name: "Abhinav College, Bhayandar",
+      location: "Bhayandar, Mumbai, Maharashtra, India",
     },
     knowsAbout: [
-      "Full Stack Web Development",
-      "ReactJS",
+      "Full-Stack Web Development",
+      "React.js",
       "Next.js",
       "Node.js",
-      "JavaScript (ES6+)",
+      "Express.js",
+      "JavaScript",
       "TypeScript",
       "HTML5 & CSS3",
       "Tailwind CSS",
+      "MongoDB & MySQL",
+      "FastAPI & Python",
       "Git & GitHub",
       "RESTful APIs",
     ],
   };
 
   return (
-    <html lang="en" className={fontSans.variable}>
+    <html
+      lang="en"
+      className={`${fontSans.variable} ${fontDisplay.variable} ${fontHandwriting.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdPerson) }}
         />
-        {/* Anti-flash inline script to instantly apply stored theme before paint */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var saved = localStorage.getItem('sv_theme');
-                  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                  }
-                } catch(e) {}
-              })();
-            `,
-          }}
-        />
       </head>
-      <body className="font-sans bg-[#FCFAF8] dark:bg-[#0B1120] text-[#111827] dark:text-[#F8FAFC] antialiased selection:bg-rose-200 selection:text-rose-900 min-h-screen flex flex-col relative overflow-x-hidden transition-colors duration-200">
-        <ThemeProvider>
-          <ScrollProgress />
-          <Navbar />
-          <main className="flex-1 w-full">{children}</main>
-          <Footer />
-        </ThemeProvider>
+      <body className="font-sans bg-[#FFFDF7] text-[#151515] antialiased selection:bg-[#FFD52E] selection:text-[#151515] min-h-screen flex flex-col relative overflow-x-hidden">
+        <ScrollProgress />
+        <Navbar />
+        <main className="flex-1 w-full">{children}</main>
+        <Footer />
       </body>
     </html>
   );

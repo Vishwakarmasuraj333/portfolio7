@@ -1,188 +1,171 @@
 "use client";
 
 import React, { useState } from "react";
-import { services } from "@/lib/services";
-import { ServiceItem } from "@/types";
+import { servicesData, ServiceCardItem } from "@/lib/services";
 import {
-  Smartphone,
-  LayoutGrid,
-  Cloud,
-  Bug,
-  ArrowRight,
-  CheckCircle2,
-  X,
-  Sparkles,
-} from "lucide-react";
+  DoodleCrown,
+  DoodleLightbulb,
+  DoodleTag,
+  DoodlePencilPot,
+  DoodleMegaphone,
+} from "../ui/Doodles";
+import { ArrowRight, CheckCircle2, X } from "lucide-react";
 
 export function ServicesSection() {
-  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+  const [activeModal, setActiveModal] = useState<ServiceCardItem | null>(null);
 
-  const getIcon = (type: ServiceItem["iconType"]) => {
-    switch (type) {
-      case "mobile":
-        return Smartphone;
-      case "uiux":
-        return LayoutGrid;
-      case "backend":
-        return Cloud;
-      case "testing":
-        return Bug;
-    }
-  };
-
-  const getThemeClasses = (color: ServiceItem["pastelColor"]) => {
-    switch (color) {
-      case "purple":
-        return {
-          iconBg: "bg-purple-100 dark:bg-purple-950/70",
-          iconColor: "text-purple-600 dark:text-purple-400",
-          hoverBorder: "hover:border-purple-300 dark:hover:border-purple-500",
-        };
-      case "pink":
-        return {
-          iconBg: "bg-rose-100 dark:bg-rose-950/70",
-          iconColor: "text-rose-600 dark:text-rose-400",
-          hoverBorder: "hover:border-rose-300 dark:hover:border-rose-500",
-        };
-      case "yellow":
-        return {
-          iconBg: "bg-amber-100 dark:bg-amber-950/70",
-          iconColor: "text-amber-600 dark:text-amber-400",
-          hoverBorder: "hover:border-amber-300 dark:hover:border-amber-500",
-        };
-      case "green":
-        return {
-          iconBg: "bg-emerald-100 dark:bg-emerald-950/70",
-          iconColor: "text-emerald-600 dark:text-emerald-400",
-          hoverBorder: "hover:border-emerald-300 dark:hover:border-emerald-500",
-        };
+  const renderDoodleIcon = (id: string) => {
+    switch (id) {
+      case "frontend-dev":
+        return <DoodleLightbulb className="w-14 h-14 sm:w-16 sm:h-16 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-200" />;
+      case "backend-dev":
+        return <DoodleTag className="w-14 h-14 sm:w-16 sm:h-16 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-200" />;
+      case "database-integration":
+        return <DoodlePencilPot className="w-14 h-14 sm:w-16 sm:h-16 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-200" />;
+      case "fullstack-ai":
+        return <DoodleMegaphone className="w-14 h-14 sm:w-16 sm:h-16 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-200" />;
+      default:
+        return <DoodleLightbulb className="w-14 h-14 sm:w-16 sm:h-16 group-hover:scale-110 transition-transform duration-200" />;
     }
   };
 
   return (
-    <section id="services" className="py-20 sm:py-24 relative overflow-hidden">
+    <section id="skills" className="py-14 sm:py-20 md:py-24 bg-[#FFFDF7] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header matching reference */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
-          <div>
-            <span className="text-xs sm:text-sm font-bold text-rose-500 uppercase tracking-widest mb-2 block font-sans">
-              What I do
+        {/* Section Header with Hand-Drawn Crown */}
+        <div className="flex flex-col items-start mb-10 sm:mb-14">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="font-handwriting font-bold text-lg sm:text-xl text-[#1749E8] tracking-wider uppercase">
+              Skills &amp; Capabilities
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F172A] dark:text-white tracking-tight leading-[1.2] flex items-center gap-2">
-              Services I provide <span className="text-rose-500 font-serif">✻</span>
-            </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-md font-normal leading-relaxed">
-            I help startups and businesses build powerful digital products from concept to launch.
+          <div className="flex items-center gap-3">
+            <h2 className="font-display font-black text-3xl xs:text-4xl sm:text-5xl md:text-6xl text-[#151515] tracking-tight uppercase">
+              WHAT I CAN BUILD
+            </h2>
+            <DoodleCrown className="w-8 h-7 sm:w-10 sm:h-8 text-[#151515] hidden sm:block hover:rotate-12 transition-transform cursor-pointer" />
+          </div>
+
+          <p className="text-sm sm:text-base md:text-lg text-[#475569] font-medium max-w-2xl mt-3">
+            Four specialized technical disciplines bridging responsive frontend interfaces, resilient backend architectures, performant databases, and AI experimentation.
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
-          {services.map((service) => {
-            const Icon = getIcon(service.iconType);
-            const styling = getThemeClasses(service.pastelColor);
-
-            return (
-              <div
-                key={service.id}
-                className={`bg-white dark:bg-slate-800/90 rounded-3xl p-7 border border-slate-200/80 dark:border-slate-700/80 shadow-soft hover-lift flex flex-col justify-between transition-all duration-300 ${styling.hoverBorder}`}
-              >
-                <div>
-                  {/* Pastel Icon Box */}
-                  <div
-                    className={`w-14 h-14 rounded-2xl ${styling.iconBg} ${styling.iconColor} flex items-center justify-center mb-6 shadow-xs`}
-                  >
-                    <Icon className="w-7 h-7" />
+        {/* 4 Colorful Cards Matching Reference Composition with Tactile Hover */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          {servicesData.map((item) => (
+            <div
+              key={item.id}
+              className={`group relative rounded-3xl ${item.bgClass} ${item.borderClass} shadow-sticker-md p-6 sm:p-7 flex flex-col justify-between transition-all duration-200 hover:-translate-y-2 hover:shadow-sticker-lg cursor-pointer`}
+              onClick={() => setActiveModal(item)}
+            >
+              {/* Card Top: Doodle Icon & Badge */}
+              <div>
+                <div className="flex items-center justify-between mb-5 sm:mb-6">
+                  {/* Custom Doodle Illustration */}
+                  <div className="p-2 sm:p-2.5 rounded-2xl bg-white/25 backdrop-blur-xs border border-black/10 group-hover:scale-105 transition-transform">
+                    {renderDoodleIcon(item.id)}
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-[#0F172A] dark:text-white mb-3 leading-snug">
-                    {service.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal mb-6">
-                    {service.description}
-                  </p>
+                  <span className="font-mono text-[10px] sm:text-xs font-black tracking-widest uppercase px-2.5 py-1 rounded-full bg-black/15">
+                    {item.category}
+                  </span>
                 </div>
 
-                {/* Read more Link */}
-                <button
-                  type="button"
-                  onClick={() => setSelectedService(service)}
-                  className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0F172A] dark:text-slate-200 hover:text-rose-500 dark:hover:text-rose-400 transition-colors pt-2 group"
-                >
-                  <span>Read more</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                {/* Card Title */}
+                <h3 className="font-display font-black text-xl sm:text-2xl leading-tight uppercase tracking-wide mb-2.5 sm:mb-3">
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-xs sm:text-sm font-medium opacity-90 leading-relaxed mb-5 sm:mb-6">
+                  {item.description}
+                </p>
+
+                {/* Core Verified Skills Checklist */}
+                <div className="space-y-2 pt-4 border-t border-black/15 text-xs sm:text-sm font-semibold">
+                  {item.skills.map((skill, sIdx) => (
+                    <div key={sIdx} className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70 shrink-0" />
+                      <span>{skill}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            );
-          })}
+
+              {/* Card Bottom: Arrow Button */}
+              <div className="pt-6 sm:pt-8 flex items-center justify-between mt-auto">
+                <span className="font-display font-bold text-xs uppercase tracking-wider underline group-hover:opacity-80">
+                  View details
+                </span>
+
+                <div
+                  className="w-10 h-10 rounded-full border-2 border-current flex items-center justify-center group-hover:scale-110 group-hover:translate-x-1 transition-all duration-200 shrink-0"
+                >
+                  <ArrowRight className="w-5 h-5" />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Service Detail Modal */}
-      {selectedService && (
+      {/* Detail Modal */}
+      {activeModal && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 dark:bg-black/75 backdrop-blur-sm animate-in fade-in"
-          onClick={() => setSelectedService(null)}
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200"
+          onClick={() => setActiveModal(null)}
         >
           <div
-            className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-750 shadow-2xl text-slate-800 dark:text-slate-200"
+            className="w-full max-w-lg bg-[#FFFDF7] text-[#151515] rounded-3xl border-4 border-[#151515] shadow-sticker-lg p-6 sm:p-8 animate-in zoom-in-95 duration-200 relative max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={() => setSelectedService(null)}
-              className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="flex items-center gap-3 mb-4">
-              <span className="p-3 rounded-2xl bg-rose-100 dark:bg-rose-950/70 text-rose-600 dark:text-rose-400">
-                <Sparkles className="w-6 h-6" />
-              </span>
+            <div className="flex items-start justify-between pb-4 border-b-2 border-[#151515] mb-5">
               <div>
-                <h3 className="text-2xl font-extrabold text-[#0F172A] dark:text-white">
-                  {selectedService.title}
-                </h3>
-                <span className="text-xs text-rose-500 font-bold uppercase tracking-wider">
-                  Service Overview
+                <span className="font-mono text-xs font-bold text-[#1749E8] uppercase tracking-wider">
+                  {activeModal.category} • {activeModal.badge}
                 </span>
+                <h3 className="font-display font-black text-2xl text-[#151515] uppercase tracking-wide mt-1">
+                  {activeModal.title}
+                </h3>
               </div>
+              <button
+                type="button"
+                onClick={() => setActiveModal(null)}
+                className="p-1.5 rounded-xl border-2 border-[#151515] bg-white text-[#151515] shadow-sticker hover:bg-slate-100"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
 
-            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-              {selectedService.description}
+            <p className="text-sm text-[#475569] font-medium leading-relaxed mb-5">
+              {activeModal.description}
             </p>
 
-            {/* Deliverables */}
-            <div className="mb-6">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-400 mb-3">
-                Key Deliverables
-              </h4>
-              <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-200">
-                {selectedService.deliverables.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 mt-0.5 shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Tech Badges */}
-            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-2">
-              {selectedService.skills.map((skill, idx) => (
-                <span
-                  key={idx}
-                  className="px-3 py-1 text-xs font-bold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
-                >
-                  {skill}
-                </span>
+            <h4 className="font-display font-bold text-xs sm:text-sm uppercase tracking-wider text-[#151515] mb-3">
+              Implementation Capabilities:
+            </h4>
+            <ul className="space-y-2.5 mb-6">
+              {activeModal.features.map((feat, fIdx) => (
+                <li key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#334155] font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-[#10B981] mt-0.5 shrink-0" />
+                  <span>{feat}</span>
+                </li>
               ))}
+            </ul>
+
+            <div className="pt-4 border-t-2 border-[#151515] flex justify-end">
+              <button
+                type="button"
+                onClick={() => setActiveModal(null)}
+                className="px-6 py-2.5 rounded-full bg-[#FFD52E] text-[#151515] border-2 border-[#151515] shadow-sticker font-display font-black text-xs uppercase tracking-wider hover:shadow-sticker-hover active:translate-x-0.5 active:translate-y-0.5 transition-all"
+              >
+                CLOSE
+              </button>
             </div>
           </div>
         </div>

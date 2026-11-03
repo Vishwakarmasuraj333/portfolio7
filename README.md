@@ -1,177 +1,142 @@
-# Suraj Vishwakarma — Premium 3D Full Stack Developer Portfolio
+# Suraj Vishwakarma — Premium Full-Stack Developer Portfolio
 
-> **Digital Experiences Engineered with Precision & Architectural Discipline**  
-> Brand: SURAJ VISHWAKARMA — DIGITAL EXPERIENCES  
-> Role: Full Stack Developer & M.Sc. IT Student  
-> Location: Bhayandar / Mumbai, Maharashtra, India  
+> **Building Digital Experiences That Work.**  
+> Brand: SURAj VISHWAKARMA / SURAJ DEV  
+> Role: Full-Stack Developer & M.Sc. IT Student  
+> College: Abhinav College, Bhayandar  
+> Credit: Developed by Suraj Vishwakarma  
 
 ---
 
-## ✦ Luxury Visual Identity & Design Tokens
+## 🎨 Visual Identity & Design Direction
 
-Designed with a balanced **Maroon + Champagne Gold + Warm Ivory** editorial aesthetic:
+Recreated from the bold, editorial hand-crafted visual reference:
 
-- **Deep Burgundy**: `#2B1019`
-- **Dark Maroon**: `#401421`
-- **Wine Red**: `#641E32`
-- **Rich Burgundy Accent**: `#7D293F`
-- **Champagne Gold**: `#D6B477`
-- **Soft Gold**: `#E8D2A1`
-- **Warm Ivory**: `#F7F1E8`
-- **Muted Rose**: `#BCA3A8`
-- **Dark Surface**: `#1C1015`
-- **Subtle Border**: `rgba(214, 180, 119, 0.20)`
+- **Primary Royal Blue**: `#1749E8`
+- **Electric Blue**: `#2457F5`
+- **Bright Yellow Accent**: `#FFD52E`
+- **Warm Red Accent**: `#F43B2F`
+- **Pure White**: `#FFFFFF`
+- **Ink Black**: `#151515`
+- **Soft Paper Surface**: `#FFFDF7`
 
-### Typography
-- **Headings**: Editorial serif typography powered by `Playfair Display`
-- **Body**: High-readability technical typography powered by `Manrope`
+### Typography Tokens
+- **Display Headings**: `Fredoka` (playful, chunky display lettering matching reference headlines)
+- **Handwritten Annotations & Stickers**: `Caveat` (expressive hand-drawn notes, speech bubbles, and arrows)
+- **Body & Code**: `Plus Jakarta Sans` & `JetBrains Mono` (high-readability sans-serif)
+
+---
+
+## 🧭 Page Architecture & Implemented Sections
+
+1. **Header & Navigation**:
+   - Custom `SURAj` wordmark with hand-drawn smiley face
+   - Responsive navigation (Home, About, Skills, Projects, Process, Education, Contact)
+   - Yellow CTA button: `LET'S BUILD SOMETHING` with curved hand-drawn arrow doodle
+   - Mobile hamburger drawer with click-outside and Escape-key support
+
+2. **Hero Section**:
+   - Eyebrow: `HELLO, INTERNET! I'M SURAJ` with doodle lightning and star
+   - Massive headline: `BUILDING DIGITAL EXPERIENCES THAT WORK.` (with selected words in Royal Blue)
+   - Dynamic typewriter subtitle cycling through:
+     - Full-Stack Developer
+     - React & Next.js Developer
+     - Backend Developer
+     - AI/ML Enthusiast
+   - Primary Red CTA: `EXPLORE MY WORK`, Secondary CTA: `ABOUT ME`, and `RESUME` preview
+   - Custom developer portrait composition with Royal Blue arched backdrop, speech bubble `HI! I'M SURAJ`, starburst, and coding stickers
+
+3. **Introduction / About Me**:
+   - Large Royal-Blue rounded panel (`#1749E8`)
+   - Polaroid sticker card with `☕ CODE FUELS IDEAS` tag
+   - Bio & Abhinav College, Bhayandar academic context
+   - Pinned lined paper notebook with binder clip: `CURRENTLY EXPLORING:` checklist and hand-drawn red heart
+
+4. **Skills & Capabilities ("WHAT I CAN BUILD")**:
+   - Crown doodle header
+   - 4 distinctive colorful cards:
+     - **Card 1 (Yellow #FFD52E)**: Frontend Development (HTML5, CSS3, JavaScript, React.js, Next.js, Tailwind, accessibility)
+     - **Card 2 (Warm Red #F43B2F)**: Backend Development (Node.js, Express.js, REST APIs, auth, error handling)
+     - **Card 3 (Royal Blue #1749E8)**: Database & Integration (MongoDB, MySQL, CRUD, relationships, Postman)
+     - **Card 4 (Bright Yellow / Accent #FFD52E)**: Full-Stack & AI Projects (Python, FastAPI, AI/ML experimentation, debugging)
+
+5. **Selected Digital Work ("SELECTED DIGITAL WORK")**:
+   - 4 colorful sticker-like project tiles matching reference design:
+     - **IntelliTwin AI** (Yellow Card): Cybersecurity anomaly-detection ML platform (FastAPI, Python, Next.js, XGBoost, SHAP)
+     - **PulseSocial** (Lavender/Paper Card): Social media management & multi-channel publishing hub
+     - **Nexora Social** (Royal Blue Card): Full-stack social workflow management app (Next.js, Node.js, Express, REST APIs)
+     - **Personal Portfolio** (Warm Red Card): Responsive developer showcase (Next.js 14, Tailwind, TypeScript, Framer Motion)
+     - **SE Ranking Research Studio**: Keyword analytics and SERP tracker
+   - Interactive project detail modals with architecture breakdowns and direct GitHub links
+
+6. **How I Approach Development ("HOW I APPROACH DEVELOPMENT")**:
+   - Red banner with doodle squiggle and starburst
+   - 3 white speech-bubble quote cards featuring genuine developer principles:
+     - Principle 01: Write Maintainable Code
+     - Principle 02: Build for Mobile & Desktop
+     - Principle 03: Validate Real Application Behavior
+
+7. **Development Process ("FROM IDEA TO DEPLOYMENT")**:
+   - 5 connected steps with numbered colored circles and connecting arrows:
+     - `01 DISCOVER`: Understand requirements, users, and problem
+     - `02 PLAN`: Design architecture, database schema, API contracts, UI structure
+     - `03 BUILD`: Implement frontend, backend, integrations, data models
+     - `04 TEST`: Validate behavior, responsive layouts, accessibility, security
+     - `05 DEPLOY`: Configure environments, deploy, verify production behavior
+
+8. **Education & Learning ("ALWAYS BUILDING. ALWAYS LEARNING.")**:
+   - B.Sc. Information Technology — Abhinav College, Bhayandar (Graduated 2025)
+   - M.Sc. Information Technology — Abhinav College, Bhayandar (Currently Pursuing)
+   - JavaScript & Web Development Certification — Simplilearn Verified
+
+9. **Yellow CTA Banner**:
+   - Bright Yellow (`#FFD52E`) callout panel
+   - Royal Blue starburst with cute eyes
+   - `READY TO BUILD SOMETHING THAT WORKS?`
+   - Retro red rotary phone illustration sticker with speech bubble `DM ME ANYTIME!`
+
+10. **Interactive Contact Section**:
+    - Form: Name, Email, Subject, Message
+    - Server-side validation via Next.js `/api/contact` API route
+    - Honeypot anti-spam protection & rate limiting
+    - Real file persistence in `.data/contacts.json`
+    - Celebratory success state with confetti & clear error banners
+
+11. **Royal Blue Footer**:
+    - `SURAj VISHWAKARMA` wordmark with smiley face
+    - Nav links, social links, credit
+    - Playful sticker: `THANKS FOR STOPPING BY! <3`
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Framework**: [Next.js 14 (App Router)](https://nextjs.org/)
-- **Language**: TypeScript (Strict typing)
-- **Styling**: Tailwind CSS
-- **3D Graphics**: Three.js, React Three Fiber (`@react-three/fiber`), `@react-three/drei`
-- **Animations**: Framer Motion & CSS Micro-Interactions
-- **Icons**: Lucide React + Bespoke SV Monogram Vector Logos
-- **Forms & Validation**: React Hook Form, Zod Schema Enforcement
-- **Backend APIs**:
-  - `/api/contact`: Rate-limited, honeypot-protected, sanitized, persists to `.data/submissions.json` with Resend email provider support.
-  - `/api/github`: Cached real-time GitHub integration with fallback.
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript (Strict mode)
+- **Styling**: Tailwind CSS with custom stickers, shadows & colors
+- **Fonts**: Fredoka (Display), Caveat (Handwriting), Plus Jakarta Sans (Body)
+- **Icons**: Lucide React + Bespoke Hand-Drawn Vector SVG Doodles
+- **Validation**: Zod + React Hook Form
+- **Feedback**: Canvas Confetti
 
 ---
 
-## 🚀 Getting Started
+## 🧪 Testing & Verification
 
-### 1. Installation
-```bash
-# Navigate to the project directory
-cd suraj-vishwakarma-portfolio
+Run the comprehensive 12-point integrity and functional test suite:
 
-# Install dependencies
-npm install
-```
-
-### 2. Environment Configuration
-Copy the example environment file:
-```bash
-cp .env.example .env.local
-```
-
-Configure your parameters inside `.env.local`:
-```env
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
-CONTACT_EMAIL=surajvishwakarma333@gmail.com
-
-# Optional: To enable real-time email dispatch from the contact form
-# RESEND_API_KEY=re_your_api_key_from_resend.com
-
-# Optional: To increase GitHub API rate limits
-# GITHUB_TOKEN=ghp_your_github_token
-```
-
-### 3. Running Locally
-```bash
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### 4. Running Verification Tests
 ```bash
 npm test
 ```
 
-### 5. Production Build
+Build the optimized production bundle:
+
 ```bash
 npm run build
-npm run start
 ```
 
----
+Start the local development server:
 
-## 📄 Resume PDF Replacement
-The portfolio serves the verified resume from:
+```bash
+npm run dev
 ```
-public/resume.pdf
-```
-To update your resume with any newer revisions, replace the file located at `public/resume.pdf`. The single-click download CTA in the navigation and hero section will stream the updated file immediately.
-
----
-
-## 📂 Architecture & Directory Structure
-
-```
-suraj-vishwakarma-portfolio/
-├── public/
-│   ├── favicon.ico             # Custom SV monogram favicon
-│   ├── logo.svg                # Vector SVG architectural emblem
-│   ├── og-image.png            # Open Graph social preview
-│   └── resume.pdf              # Verified CV asset
-├── src/
-│   ├── app/
-│   │   ├── api/
-│   │   │   ├── contact/route.ts # Rate-limited Zod contact handler
-│   │   │   └── github/route.ts  # Cached GitHub activity fetcher
-│   │   ├── globals.css         # Luxury tokens & dark/light theme classes
-│   │   ├── icon.svg            # Dynamic SVG favicon
-│   │   ├── layout.tsx          # SEO metadata, JSON-LD Schema & Fonts
-│   │   ├── page.tsx            # Main single-page portfolio layout
-│   │   ├── robots.ts           # Robots.txt configuration
-│   │   └── sitemap.ts          # XML Sitemap generator
-│   ├── components/
-│   │   ├── layout/
-│   │   │   ├── Footer.tsx
-│   │   │   ├── MobileMenu.tsx  # Accessible mobile drawer (ESC key + focus trap)
-│   │   │   ├── Navbar.tsx      # Sticky glass navigation with active link tracking
-│   │   │   ├── ScrollProgress.tsx # Champagne progress indicator
-│   │   │   └── ThemeContext.tsx # Persistent light/dark state
-│   │   ├── sections/
-│   │   │   ├── HeroSection.tsx
-│   │   │   ├── AboutSection.tsx
-│   │   │   ├── SkillsSection.tsx
-│   │   │   ├── ProjectsSection.tsx
-│   │   │   ├── ExperienceSection.tsx # Development Journey
-│   │   │   ├── EducationSection.tsx  # Abhinav College timeline
-│   │   │   ├── GithubActivitySection.tsx
-│   │   │   └── ContactSection.tsx
-│   │   ├── three/
-│   │   │   ├── HeroScene.tsx         # Lazy 3D container & WebGL detection
-│   │   │   ├── InteractiveCanvas.tsx # R3F Canvas instance
-│   │   │   ├── SculpturalComposition.tsx # Burgundy glass & champagne orbit rings
-│   │   │   └── SceneFallback.tsx     # Graceful CSS 3D fallback
-│   │   └── ui/
-│   │       ├── AtmosphereBackground.tsx # Burgundy atmosphere & stardust
-│   │       ├── Button.tsx
-│   │       ├── Logo.tsx             # Custom interlocking SV vector logo
-│   │       ├── ProjectCard.tsx      # 3D interactive tilt cards
-│   │       ├── ProjectModal.tsx     # Architectural deep-dive modal
-│   │       ├── ResumeModal.tsx      # Executive CV viewer & download guide
-│   │       └── SectionHeading.tsx
-│   ├── lib/
-│   │   ├── journey.ts           # Education & milestone datasets
-│   │   ├── projects.ts          # Centrally typed projects data
-│   │   ├── site-config.ts       # Central brand & link configuration
-│   │   ├── skills.ts            # Categorized skills matrix
-│   │   ├── utils.ts
-│   │   └── validation.ts        # Zod validation & sanitization
-│   └── types/
-│       └── index.ts             # Strict TypeScript definitions
-├── package.json
-├── tailwind.config.ts
-├── tsconfig.json
-└── README.md
-```
-
----
-
-## 🌐 Verified Links
-
-- **GitHub**: [https://github.com/Vishwakarmasuraj333](https://github.com/Vishwakarmasuraj333)
-- **LinkedIn**: [https://www.linkedin.com/in/suraj-vishwakarma-2ab64436a/](https://www.linkedin.com/in/suraj-vishwakarma-2ab64436a/)
-- **Projects**:
-  - [IntelliTwin AI](https://github.com/Vishwakarmasuraj333/IntelliTwin-AI) (Cyber ML Anomaly Detection)
-  - [Nexora Social](https://github.com/Vishwakarmasuraj333/-Nexora-Social) (Publishing Workflows)
-  - [SE Ranking Research Studio](https://github.com/MamtaYdvTech1/SE-Ranking) (SERP Intelligence)
-

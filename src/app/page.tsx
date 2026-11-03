@@ -3,36 +3,40 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import { ContactCtaBanner } from "@/components/sections/ContactCtaBanner";
-import { SkillsSection } from "@/components/sections/SkillsSection";
+import { ApproachSection } from "@/components/sections/ApproachSection";
+import { ProcessSection } from "@/components/sections/ProcessSection";
 import { EducationSection } from "@/components/sections/EducationSection";
+import { ContactCtaBanner } from "@/components/sections/ContactCtaBanner";
 import { ContactSection } from "@/components/sections/ContactSection";
 
 export default function HomePage() {
   return (
     <>
-      {/* 1. Hero Section matching reference composition */}
+      {/* 1. Memorable Hero Section with Bold Typography, Doodles & Developer Composition */}
       <HeroSection />
 
-      {/* 2. About Me Wavy Section with Developer Illustration & 4 Stat Badges */}
+      {/* 2. Introduction / About Me Section in Large Royal-Blue Rounded Panel */}
       <AboutSection />
 
-      {/* 3. Services I Provide (What I do) */}
+      {/* 3. Skills and Services: "WHAT I CAN BUILD" with 4 Distinctive Colorful Cards */}
       <ServicesSection />
 
-      {/* 4. Selected Work (Foodly, Shopio, WalletWise, FitTrack + Modals) */}
+      {/* 4. Featured Projects: "SELECTED DIGITAL WORK" Gallery & Interactive Modals */}
       <ProjectsSection />
 
-      {/* 5. "Have an idea? Let's build something great together!" CTA Banner with High-Five Illustration */}
-      <ContactCtaBanner />
+      {/* 5. "HOW I APPROACH DEVELOPMENT" Principles (Honest standards based on reference) */}
+      <ApproachSection />
 
-      {/* 6. Technical Stack & Categorized Skills */}
-      <SkillsSection />
+      {/* 6. Development Process: "FROM IDEA TO DEPLOYMENT" (5 connected steps) */}
+      <ProcessSection />
 
-      {/* 7. Education & Certifications (Abhinav College, 9 CGPA, M.Sc. IT, Simplilearn) */}
+      {/* 7. Education & Learning: "ALWAYS BUILDING. ALWAYS LEARNING." (Abhinav College & Simplilearn) */}
       <EducationSection />
 
-      {/* 8. Interactive Contact Section */}
+      {/* 8. Yellow Call-To-Action Banner with Blue Starburst & Retro Red Phone Sticker */}
+      <ContactCtaBanner />
+
+      {/* 9. Interactive Contact Section with Zod Validation & Anti-Spam Protection */}
       <ContactSection />
     </>
   );
