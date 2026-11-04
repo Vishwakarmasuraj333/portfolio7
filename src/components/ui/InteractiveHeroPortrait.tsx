@@ -5,19 +5,14 @@ import Image from "next/image";
 import {
   DoodleStar,
   DoodleHeart,
-  DoodleCrownYellow,
   DoodleClapperboard,
-  DoodleLightningBolt,
-  DoodleSmileySticker,
 } from "./Doodles";
-import { Sparkles, Code2, Laptop, User, Palette } from "lucide-react";
-import { IllustratedAnimeDeveloper } from "../illustrations/IllustratedAnimeDeveloper";
+import { Sparkles, Code2 } from "lucide-react";
 
 export function InteractiveHeroPortrait() {
   const cardRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const [imageType, setImageType] = useState<"anime" | "3d-boy" | "portrait">("anime");
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -44,46 +39,6 @@ export function InteractiveHeroPortrait() {
 
   return (
     <div className="flex flex-col items-center w-full">
-      {/* Visual Sub-Mode Switcher: Illustrated Comic Dev vs 3D Boy vs Studio Portrait */}
-      <div className="inline-flex items-center p-1 rounded-full bg-space-900/95 border border-purple-500/35 backdrop-blur-md mb-3 shadow-md z-30">
-        <button
-          type="button"
-          onClick={() => setImageType("anime")}
-          className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-display font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
-            imageType === "anime"
-              ? "bg-[#CCFF00] text-[#0A0514] font-black shadow-[0_0_15px_rgba(204,255,0,0.5)]"
-              : "text-purple-300 hover:text-white"
-          }`}
-        >
-          <Palette className="w-3.5 h-3.5" />
-          <span>Comic Dev</span>
-        </button>
-        <button
-          type="button"
-          onClick={() => setImageType("3d-boy")}
-          className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-display font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
-            imageType === "3d-boy"
-              ? "bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white shadow-[0_0_12px_rgba(236,72,153,0.5)]"
-              : "text-purple-300 hover:text-white"
-          }`}
-        >
-          <Laptop className="w-3.5 h-3.5" />
-          <span>3D Coder</span>
-        </button>
-        <button
-          type="button"
-          onClick={() => setImageType("portrait")}
-          className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-display font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
-            imageType === "portrait"
-              ? "bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white shadow-[0_0_12px_rgba(236,72,153,0.5)]"
-              : "text-purple-300 hover:text-white"
-          }`}
-        >
-          <User className="w-3.5 h-3.5" />
-          <span>Studio Photo</span>
-        </button>
-      </div>
-
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
@@ -104,7 +59,7 @@ export function InteractiveHeroPortrait() {
         >
           {/* Ambient Cosmic Rim Glows (Red, Pink, Purple) */}
           <div
-            className={`absolute -inset-4 rounded-t-[9rem] rounded-b-[3.5rem] bg-gradient-to-r from-red-600/35 via-pink-600/35 to-purple-600/35 blur-2xl transition-opacity duration-500 pointer-events-none ${
+            className={`absolute -inset-4 rounded-t-[9rem] rounded-b-[3.5rem] bg-gradient-to-r from-purple-600/35 via-pink-600/35 to-red-600/35 blur-2xl transition-opacity duration-500 pointer-events-none ${
               isHovered ? "opacity-100 scale-105" : "opacity-60 scale-100"
             }`}
           />
@@ -116,27 +71,17 @@ export function InteractiveHeroPortrait() {
               {/* Background gradient behind developer silhouette */}
               <div className="absolute inset-0 bg-gradient-to-b from-purple-950/60 via-space-900 to-space-950" />
 
-              {/* Developer Image: Comic Illustrated Dev vs 3D Boy vs Studio Portrait */}
-              {imageType === "anime" ? (
-                <div className="relative w-full h-full p-2 flex items-center justify-center">
-                  <IllustratedAnimeDeveloper />
-                </div>
-              ) : (
-                <Image
-                  src={
-                    imageType === "3d-boy"
-                      ? "/images/boy-coding-3d.png"
-                      : "/images/suraj-portrait.jpg"
-                  }
-                  alt="Suraj Vishwakarma — Full-Stack Developer"
-                  fill
-                  priority
-                  sizes="(max-width: 640px) 320px, 340px"
-                  className={`object-cover object-top transition-transform duration-700 ease-out ${
-                    isHovered ? "scale-108" : "scale-100"
-                  }`}
-                />
-              )}
+              {/* Professional 3D Coder Boy Graphic (Suraj Coding at Desk) */}
+              <Image
+                src="/images/boy-coding-3d.png"
+                alt="Suraj Vishwakarma — 3D Full-Stack Developer Coding"
+                fill
+                priority
+                sizes="(max-width: 640px) 320px, 340px"
+                className={`object-cover object-center transition-transform duration-700 ease-out ${
+                  isHovered ? "scale-108" : "scale-100"
+                }`}
+              />
 
               {/* Bottom Dark Gradient Fade */}
               <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0A0514] via-[#0A0514]/70 to-transparent pointer-events-none" />
