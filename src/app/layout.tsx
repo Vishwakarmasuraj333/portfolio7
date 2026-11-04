@@ -4,6 +4,7 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { AtmosphereBackground } from "@/components/ui/AtmosphereBackground";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 
 const fontSans = Plus_Jakarta_Sans({
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s | Suraj Vishwakarma",
   },
   description:
-    "I'm Suraj Vishwakarma, a Full-Stack Developer passionate about building responsive web applications, practical digital products, and useful AI-powered experiences. B.Sc. IT (2025) & M.Sc. IT | Abhinav College, Bhayandar.",
+    "I'm Suraj Vishwakarma, a Full-Stack Developer passionate about engineering high-performance React & Next.js applications, Python microservices, and AI integrations. M.Sc. IT & B.Sc. IT | Abhinav College, Bhayandar.",
   keywords: [
     "Suraj Vishwakarma",
     "Full-Stack Developer",
@@ -43,6 +44,7 @@ export const metadata: Metadata = {
     "Node.js Developer",
     "FastAPI",
     "Python",
+    "Cybersecurity ML",
     "Abhinav College",
     "Bhayandar",
     "Mumbai Developer",
@@ -109,11 +111,11 @@ export default function RootLayout({
       "Express.js",
       "JavaScript",
       "TypeScript",
-      "HTML5 & CSS3",
-      "Tailwind CSS",
+      "Python",
+      "FastAPI",
       "MongoDB & MySQL",
-      "FastAPI & Python",
-      "Git & GitHub",
+      "Tailwind CSS",
+      "Three.js 3D Graphics",
       "RESTful APIs",
     ],
   };
@@ -121,7 +123,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} ${fontDisplay.variable} ${fontHandwriting.variable}`}
+      className={`dark ${fontSans.variable} ${fontDisplay.variable} ${fontHandwriting.variable}`}
     >
       <head>
         <script
@@ -129,10 +131,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdPerson) }}
         />
       </head>
-      <body className="font-sans bg-[#FFFDF7] text-[#151515] antialiased selection:bg-[#FFD52E] selection:text-[#151515] min-h-screen flex flex-col relative overflow-x-hidden">
+      <body className="font-sans bg-[#06030A] text-[#F3E8F5] antialiased selection:bg-[#EC4899] selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
         <ScrollProgress />
+        <AtmosphereBackground />
         <Navbar />
-        <main className="flex-1 w-full">{children}</main>
+        <main className="flex-1 w-full relative z-10">{children}</main>
         <Footer />
       </body>
     </html>

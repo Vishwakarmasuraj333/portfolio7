@@ -13,12 +13,12 @@ export function SculpturalComposition() {
   const satellitesRef = useRef<THREE.Group>(null);
   const particlesRef = useRef<THREE.Points>(null);
 
-  // Generate particle positions
+  // Generate particle positions with multi-hued stardust
   const [particlesPos] = useMemo(() => {
-    const count = 120;
+    const count = 160;
     const positions = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      const radius = 2.5 + Math.random() * 3.5;
+      const radius = 2.4 + Math.random() * 3.8;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
       positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
@@ -28,7 +28,7 @@ export function SculpturalComposition() {
     return [positions];
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame((state) => {
     const t = state.clock.getElapsedTime();
     const pointer = state.pointer;
 
@@ -36,178 +36,190 @@ export function SculpturalComposition() {
     if (groupRef.current) {
       groupRef.current.rotation.y = THREE.MathUtils.lerp(
         groupRef.current.rotation.y,
-        pointer.x * 0.4 + t * 0.05,
+        pointer.x * 0.45 + t * 0.06,
         0.05
       );
       groupRef.current.rotation.x = THREE.MathUtils.lerp(
         groupRef.current.rotation.x,
-        -pointer.y * 0.3 + Math.sin(t * 0.5) * 0.05,
+        -pointer.y * 0.35 + Math.sin(t * 0.5) * 0.05,
         0.05
       );
-      groupRef.current.position.y = Math.sin(t * 0.8) * 0.12;
+      groupRef.current.position.y = Math.sin(t * 0.8) * 0.14;
     }
 
     // Core slow rotation
     if (coreRef.current) {
-      coreRef.current.rotation.x = t * 0.2;
-      coreRef.current.rotation.y = t * 0.3;
+      coreRef.current.rotation.x = t * 0.22;
+      coreRef.current.rotation.y = t * 0.32;
     }
 
-    // Differential orbital rings
+    // Differential orbital rings (Red, Pink, Purple)
     if (ring1Ref.current) {
-      ring1Ref.current.rotation.x = t * 0.15;
-      ring1Ref.current.rotation.y = t * 0.25;
+      ring1Ref.current.rotation.x = t * 0.16;
+      ring1Ref.current.rotation.y = t * 0.26;
     }
     if (ring2Ref.current) {
-      ring2Ref.current.rotation.y = -t * 0.18;
-      ring2Ref.current.rotation.z = t * 0.12;
+      ring2Ref.current.rotation.y = -t * 0.2;
+      ring2Ref.current.rotation.z = t * 0.14;
     }
     if (ring3Ref.current) {
-      ring3Ref.current.rotation.x = -t * 0.1;
-      ring3Ref.current.rotation.z = -t * 0.2;
+      ring3Ref.current.rotation.x = -t * 0.12;
+      ring3Ref.current.rotation.z = -t * 0.22;
     }
 
     // Satellites orbital orbit
     if (satellitesRef.current) {
-      satellitesRef.current.rotation.y = t * 0.35;
-      satellitesRef.current.rotation.x = Math.sin(t * 0.3) * 0.2;
+      satellitesRef.current.rotation.y = t * 0.38;
+      satellitesRef.current.rotation.x = Math.sin(t * 0.3) * 0.22;
     }
 
     // Micro-particles shimmer & slow drift
     if (particlesRef.current) {
-      particlesRef.current.rotation.y = t * 0.03;
-      particlesRef.current.rotation.x = t * 0.02;
+      particlesRef.current.rotation.y = t * 0.035;
+      particlesRef.current.rotation.x = t * 0.025;
     }
   });
 
   return (
     <group ref={groupRef}>
-      {/* Studio Lighting System */}
-      <ambientLight color="#F7F1E8" intensity={0.7} />
-      {/* Champagne Key Light */}
+      {/* Studio Lighting System: Purple, Pink, Crimson Red */}
+      <ambientLight color="#1A0E2E" intensity={1.2} />
+
+      {/* Neon Purple Key Light */}
       <directionalLight
-        color="#D6B477"
-        intensity={2.8}
+        color="#C084FC"
+        intensity={3.5}
         position={[5, 6, 4]}
       />
-      {/* Deep Burgundy Back / Rim Light */}
+
+      {/* Neon Pink Rim Light */}
       <directionalLight
-        color="#7D293F"
-        intensity={3.2}
+        color="#F43F5E"
+        intensity={3.8}
         position={[-6, -4, -4]}
       />
-      {/* Soft Gold Front Point Light */}
+
+      {/* Crimson Red Fill Light */}
       <pointLight
-        color="#E8D2A1"
-        intensity={2.0}
+        color="#EF4444"
+        intensity={3.0}
         position={[0, 1.5, 3]}
         distance={10}
       />
-      {/* Wine Red Fill Light */}
+
+      {/* Deep Violet Back Light */}
       <pointLight
-        color="#641E32"
-        intensity={2.5}
+        color="#7E22CE"
+        intensity={2.8}
         position={[0, -2, -2]}
         distance={8}
       />
 
-      {/* Central Abstract Burgundy Glass Sculpture */}
+      {/* Central Abstract Violet-Wine Glass Torus Knot Sculpture */}
       <mesh ref={coreRef} castShadow receiveShadow>
         <torusKnotGeometry args={[1.05, 0.32, 128, 32, 2, 3]} />
         <meshPhysicalMaterial
-          color="#641E32"
-          emissive="#2B1019"
-          emissiveIntensity={0.2}
-          roughness={0.18}
-          metalness={0.25}
-          transmission={0.65}
-          thickness={1.4}
-          clearcoat={0.9}
-          clearcoatRoughness={0.1}
-          reflectivity={0.9}
+          color="#9333EA"
+          emissive="#581C87"
+          emissiveIntensity={0.35}
+          roughness={0.14}
+          metalness={0.35}
+          transmission={0.72}
+          thickness={1.5}
+          clearcoat={1.0}
+          clearcoatRoughness={0.08}
+          reflectivity={0.95}
         />
       </mesh>
 
-      {/* Inner Champagne Octahedron Core Gem */}
-      <mesh scale={[0.45, 0.45, 0.45]}>
+      {/* Inner Glowing Magenta Pink Octahedron Core Gem */}
+      <mesh scale={[0.46, 0.46, 0.46]}>
         <octahedronGeometry args={[1, 0]} />
         <meshStandardMaterial
-          color="#D6B477"
-          roughness={0.2}
-          metalness={0.95}
-          emissive="#D6B477"
-          emissiveIntensity={0.3}
+          color="#EC4899"
+          roughness={0.15}
+          metalness={0.92}
+          emissive="#BE185D"
+          emissiveIntensity={0.65}
         />
       </mesh>
 
-      {/* Champagne Metallic Orbital Rings */}
+      {/* Ring 1: Neon Magenta Pink Orbital Ring */}
       <mesh ref={ring1Ref}>
-        <torusGeometry args={[2.0, 0.025, 24, 100]} />
+        <torusGeometry args={[2.0, 0.026, 24, 100]} />
         <meshStandardMaterial
-          color="#D6B477"
+          color="#EC4899"
           metalness={0.9}
-          roughness={0.2}
-          emissive="#8C6C35"
-          emissiveIntensity={0.15}
+          roughness={0.18}
+          emissive="#BE185D"
+          emissiveIntensity={0.4}
         />
       </mesh>
 
+      {/* Ring 2: Electric Violet Purple Orbital Ring */}
       <mesh ref={ring2Ref} rotation={[Math.PI / 3, 0, 0]}>
-        <torusGeometry args={[2.3, 0.02, 24, 100]} />
+        <torusGeometry args={[2.32, 0.022, 24, 100]} />
         <meshStandardMaterial
-          color="#E8D2A1"
+          color="#A855F7"
           metalness={0.88}
-          roughness={0.22}
-          emissive="#B89354"
-          emissiveIntensity={0.1}
+          roughness={0.2}
+          emissive="#7E22CE"
+          emissiveIntensity={0.35}
         />
       </mesh>
 
+      {/* Ring 3: Crimson Red Orbital Ring */}
       <mesh ref={ring3Ref} rotation={[-Math.PI / 4, Math.PI / 6, 0]}>
-        <torusGeometry args={[2.6, 0.018, 24, 100]} />
+        <torusGeometry args={[2.62, 0.02, 24, 100]} />
         <meshStandardMaterial
-          color="#D6B477"
+          color="#EF4444"
           metalness={0.85}
-          roughness={0.3}
-          opacity={0.7}
+          roughness={0.25}
+          emissive="#991B1B"
+          emissiveIntensity={0.3}
+          opacity={0.85}
           transparent
         />
       </mesh>
 
-      {/* Orbiting Satellite Gems */}
+      {/* Orbiting Satellite Crystals (Red, Purple, Pink) */}
       <group ref={satellitesRef}>
-        <mesh position={[2.4, 0.3, 0]} scale={[0.15, 0.15, 0.15]}>
+        <mesh position={[2.45, 0.35, 0]} scale={[0.16, 0.16, 0.16]}>
           <octahedronGeometry args={[1, 0]} />
           <meshStandardMaterial
-            color="#D6B477"
+            color="#EC4899"
             metalness={0.9}
-            roughness={0.2}
-            emissive="#D6B477"
-            emissiveIntensity={0.4}
+            roughness={0.15}
+            emissive="#BE185D"
+            emissiveIntensity={0.7}
           />
         </mesh>
 
-        <mesh position={[-2.2, -0.6, 0.5]} scale={[0.12, 0.12, 0.12]}>
+        <mesh position={[-2.25, -0.65, 0.5]} scale={[0.14, 0.14, 0.14]}>
           <icosahedronGeometry args={[1, 0]} />
           <meshPhysicalMaterial
-            color="#7D293F"
-            transmission={0.8}
+            color="#A855F7"
+            transmission={0.85}
             roughness={0.1}
-            thickness={1}
+            thickness={1.2}
+            emissive="#7E22CE"
+            emissiveIntensity={0.3}
           />
         </mesh>
 
-        <mesh position={[0.5, 2.3, -0.8]} scale={[0.1, 0.1, 0.1]}>
+        <mesh position={[0.5, 2.35, -0.8]} scale={[0.12, 0.12, 0.12]}>
           <dodecahedronGeometry args={[1, 0]} />
           <meshStandardMaterial
-            color="#F7F1E8"
-            metalness={0.7}
-            roughness={0.2}
+            color="#EF4444"
+            metalness={0.8}
+            roughness={0.18}
+            emissive="#B91C1C"
+            emissiveIntensity={0.5}
           />
         </mesh>
       </group>
 
-      {/* Champagne Stardust Particles */}
+      {/* Cosmic Stardust Particles (Purple & Pink Glow) */}
       <points ref={particlesRef}>
         <bufferGeometry>
           <bufferAttribute
@@ -218,10 +230,10 @@ export function SculpturalComposition() {
           />
         </bufferGeometry>
         <pointsMaterial
-          size={0.035}
-          color="#D6B477"
+          size={0.042}
+          color="#F472B6"
           transparent
-          opacity={0.8}
+          opacity={0.85}
           sizeAttenuation
           blending={THREE.AdditiveBlending}
         />
@@ -229,4 +241,3 @@ export function SculpturalComposition() {
     </group>
   );
 }
-

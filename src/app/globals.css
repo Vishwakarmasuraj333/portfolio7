@@ -9,107 +9,116 @@
   --font-display: 'Fredoka', 'Plus Jakarta Sans', sans-serif;
   --font-handwriting: 'Caveat', 'Comic Sans MS', cursive;
 
+  /* Reference Palette Tokens (#1749E8, #FFD52E, #F43B2F, #151515, #FFFDF7) */
   --color-royal-blue: #1749E8;
-  --color-electric-blue: #2457F5;
-  --color-yellow: #FFD52E;
+  --color-bright-yellow: #FFD52E;
   --color-warm-red: #F43B2F;
   --color-ink-black: #151515;
   --color-soft-paper: #FFFDF7;
-  --color-pure-white: #FFFFFF;
+
+  /* Cosmic Luxury Space Palette */
+  --color-space-950: #06030A;
+  --color-space-900: #0A0514;
+  --color-space-800: #160C2C;
+  --color-neon-purple: #A855F7;
+  --color-neon-pink: #EC4899;
+  --color-neon-red: #EF4444;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
-  background-color: #FFFDF7;
-  color: #151515;
+  background-color: #0A0514;
+  color: #FFFFFF;
 }
 
 body {
-  background-color: #FFFDF7;
-  color: #151515;
+  background-color: #0A0514;
+  color: #F3E8F5;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   overflow-x: hidden;
 }
 
-/* Custom brush / marker underline */
-.doodle-underline {
-  position: relative;
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.doodle-underline::after {
-  content: "";
-  position: absolute;
-  left: -2%;
-  bottom: -6px;
-  width: 104%;
-  height: 8px;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 16' preserveAspectRatio='none'%3E%3Cpath d='M3 11 C 60 4, 150 14, 245 6 C 210 13, 130 9, 5 13' stroke='%231749E8' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-}
-
-.doodle-underline-yellow::after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 16' preserveAspectRatio='none'%3E%3Cpath d='M3 11 C 60 4, 150 14, 245 6 C 210 13, 130 9, 5 13' stroke='%23FFD52E' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
-}
-
-.doodle-underline-red::after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 16' preserveAspectRatio='none'%3E%3Cpath d='M3 11 C 60 4, 150 14, 245 6 C 210 13, 130 9, 5 13' stroke='%23F43B2F' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
-}
-
-/* Hand-crafted card sticker shadow effects */
-.sticker-card {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sticker-card:hover {
-  transform: translateY(-4px) rotate(0.5deg);
-  box-shadow: 6px 6px 0px #151515;
-}
-
-/* Paper note lined pattern */
-.paper-lined {
-  background-color: #FFFFFF;
-  background-image: linear-gradient(#E2E8F0 1px, transparent 1px);
-  background-size: 100% 28px;
-  line-height: 28px;
-}
-
 /* Custom text selection */
 ::selection {
-  background-color: #FFD52E;
-  color: #151515;
+  background-color: #EC4899;
+  color: #FFFFFF;
 }
 
-/* Clean Custom Scrollbar */
+/* Cosmic Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FFFDF7;
+  background: #0A0514;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1749E8;
+  background: linear-gradient(to bottom, #EF4444, #EC4899, #A855F7);
   border-radius: 9999px;
-  border: 2px solid #FFFDF7;
+  border: 2px solid #0A0514;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0E38C4;
+  background: linear-gradient(to bottom, #F43F5E, #D946EF, #8B5CF6);
 }
 
-/* Respect user motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+/* Glassmorphism Card Utilities */
+.cosmic-glass {
+  background: rgba(22, 12, 44, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px -2px rgba(168, 85, 247, 0.12);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cosmic-glass:hover {
+  border-color: rgba(236, 72, 153, 0.45);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.9), 0 0 30px 2px rgba(236, 72, 153, 0.25);
+  transform: translateY(-4px);
+}
+
+/* Neon Glow Gradient Text */
+.text-cosmic-glow {
+  background: linear-gradient(135deg, #EF4444 0%, #EC4899 50%, #A855F7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-purple-pink-glow {
+  background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-pink-red-glow {
+  background: linear-gradient(135deg, #EC4899 0%, #EF4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Neon Glow Outline Buttons */
+.btn-cosmic-glow {
+  background: linear-gradient(135deg, #EF4444 0%, #EC4899 50%, #A855F7 100%);
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+  transition: all 0.25s ease-out;
+}
+
+.btn-cosmic-glow:hover {
+  box-shadow: 0 0 35px rgba(236, 72, 153, 0.7);
+  transform: translateY(-2px);
+}
+
+/* Animated Shimmer for Badges */
+@keyframes cosmicShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.cosmic-shimmer {
+  background: linear-gradient(90deg, rgba(168,85,247,0.1) 0%, rgba(236,72,153,0.3) 50%, rgba(168,85,247,0.1) 100%);
+  background-size: 200% 100%;
+  animation: cosmicShimmer 4s infinite linear;
 }

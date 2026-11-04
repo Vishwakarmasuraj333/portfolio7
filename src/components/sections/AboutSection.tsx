@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import {
-  DoodleBinderClip,
   DoodleHeart,
   DoodleArrowCurved,
   DoodleStar,
@@ -16,153 +16,132 @@ import {
   Sparkles,
   ArrowRight,
   GraduationCap,
+  Award,
+  CheckCircle2,
 } from "lucide-react";
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-20 bg-[#FFFDF7] relative">
+    <section id="about" className="py-16 sm:py-20 md:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Large Royal-Blue Rounded Panel */}
-        <div className="relative rounded-[2rem] sm:rounded-[3rem] lg:rounded-[3.5rem] bg-[#1749E8] border-4 border-[#151515] p-5 sm:p-8 md:p-10 lg:p-14 shadow-sticker-lg text-white overflow-hidden">
-          {/* Subtle background graph pattern */}
-          <div
-            className="absolute inset-0 opacity-10 pointer-events-none"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle, #ffffff 1.5px, transparent 1.5px)",
-              backgroundSize: "28px 28px",
-            }}
-          />
+        {/* Large Cosmic Night Glass Panel with Glowing Border */}
+        <div className="relative rounded-[2.5rem] sm:rounded-[3.5rem] bg-space-850/80 border border-purple-500/30 p-6 sm:p-10 md:p-12 lg:p-16 shadow-[0_0_50px_rgba(168,85,247,0.15)] backdrop-blur-2xl text-white overflow-hidden">
+          {/* Ambient Glowing Gradients inside panel */}
+          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-pink-600/10 blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-purple-600/15 blur-[100px] pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
-            {/* Left Column: Polaroid sticker, "HI, I'M SURAJ!", bio, education & "MORE ABOUT ME" */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+            {/* Left Column: Greeting, Bio, Education Details & CTA */}
             <div className="lg:col-span-7 flex flex-col items-start text-left">
-              <div className="flex flex-wrap sm:flex-nowrap items-start gap-4 mb-5 sm:mb-6">
-                {/* Polaroid Sticker with Smiley Code Card */}
-                <div className="relative bg-white text-[#151515] p-2 pb-3 rounded-2xl border-2 border-[#151515] shadow-sticker rotate-[-6deg] hover:rotate-0 hover:scale-105 hover:shadow-sticker-lg transition-all duration-200 cursor-pointer shrink-0">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#FFD52E] rounded-xl border border-[#151515] flex items-center justify-center">
-                    <Terminal className="w-8 h-8 text-[#151515]" />
-                  </div>
-                  <div className="mt-1 text-center font-handwriting text-xs font-bold text-[#151515]">
-                    &lt;coder /&gt;
-                  </div>
-
-                  {/* Yellow Note Tag: "CODE FUELS IDEAS" */}
-                  <div className="absolute -bottom-3 -right-4 sm:-right-6 bg-[#FFD52E] text-[#151515] px-2.5 py-1 rounded-lg border-2 border-[#151515] shadow-sticker font-display text-[10px] sm:text-xs font-black tracking-wider uppercase rotate-[6deg] whitespace-nowrap hover:scale-110 transition-transform">
-                    ☕ CODE FUELS IDEAS
-                  </div>
-                </div>
-
-                {/* Heading */}
-                <div className="pt-2 pl-0 sm:pl-2">
-                  <span className="font-handwriting text-lg sm:text-xl text-[#FFD52E] font-bold block mb-1">
-                    Introduction
-                  </span>
-                  <h2 className="font-display font-black text-2xl xs:text-3xl sm:text-5xl tracking-tight text-white uppercase">
-                    HI, I&apos;M SURAJ!
-                  </h2>
-                </div>
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-950/60 border border-purple-500/30 text-xs font-mono font-bold uppercase tracking-wider text-pink-300 mb-4 shadow-[0_0_12px_rgba(168,85,247,0.2)]">
+                <Sparkles className="w-3.5 h-3.5 text-pink-400" />
+                <span>ABOUT SURAJ VISHWAKARMA</span>
               </div>
+
+              {/* Main Heading */}
+              <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white tracking-tight uppercase leading-[1.08] mb-6">
+                DRIVEN BY PASSION. <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-500 to-purple-400">
+                  ENGINEERED WITH
+                </span>{" "}
+                DISCIPLINE.
+              </h2>
 
               {/* Bio Paragraphs */}
-              <p className="text-sm sm:text-base md:text-lg text-white/95 leading-relaxed font-normal mb-5 max-w-xl">
-                I&apos;m a Full-Stack Developer who enjoys turning ideas into functional, responsive, and user-friendly web applications. I work across frontend interfaces, backend APIs, databases, and application integration, with a strong interest in learning modern technologies and building practical projects.
+              <p className="text-base sm:text-lg text-purple-100/90 leading-relaxed font-normal mb-6 max-w-xl">
+                I&apos;m a Full-Stack Developer with a deep commitment to engineering high-performance web applications, scalable RESTful microservices, and practical AI integrations. I bridge the gap between intuitive user experiences and dependable backend architecture.
               </p>
 
-              {/* Mini Education & College details */}
-              <div className="bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-2xl p-4 sm:p-5 mb-6 w-full max-w-xl hover:border-white/40 transition-colors">
-                <div className="flex items-center gap-2 mb-2 text-[#FFD52E] font-display font-bold text-xs sm:text-sm tracking-wide">
-                  <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span>EDUCATION &amp; COLLEGE</span>
+              {/* Academic Details Card: Abhinav College, Bhayandar */}
+              <div className="bg-space-900/80 border border-purple-500/30 rounded-2xl p-5 mb-8 w-full max-w-xl shadow-[0_0_20px_rgba(168,85,247,0.1)] hover:border-pink-500/50 transition-all">
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <div className="flex items-center gap-2 text-pink-400 font-display font-bold text-xs sm:text-sm tracking-wide">
+                    <GraduationCap className="w-5 h-5 text-pink-400" />
+                    <span>ACADEMIC FOUNDATION • ABHINAV COLLEGE</span>
+                  </div>
+                  <span className="px-2.5 py-0.5 rounded-full bg-pink-950/80 border border-pink-500/40 text-[10px] font-mono font-bold text-pink-300">
+                    MUMBAI UNIVERSITY
+                  </span>
                 </div>
-                <div className="text-xs sm:text-sm text-white/90 space-y-1.5">
-                  <p>
-                    <strong className="text-white">B.Sc. Information Technology</strong> — Abhinav College, Bhayandar (Graduated 2025)
-                  </p>
-                  <p>
-                    <strong className="text-white">M.Sc. Information Technology</strong> — Abhinav College, Bhayandar (Currently Pursuing)
-                  </p>
+                <div className="text-xs sm:text-sm text-purple-200/90 space-y-2">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <p>
+                      <strong className="text-white">M.Sc. Information Technology:</strong> Abhinav College, Bhayandar (Currently Pursuing, 2025 — Present)
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-pink-400 shrink-0 mt-0.5" />
+                    <p>
+                      <strong className="text-white">B.Sc. Information Technology:</strong> Graduated with <strong className="text-pink-300">9.04 CGPA (A Grade)</strong> honors from Abhinav College (2022 — 2025)
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              {/* CTA Button with curved arrow */}
-              <div className="flex items-center gap-4 relative">
+              {/* CTA Button */}
+              <div className="flex items-center gap-4">
                 <a
                   href="#skills"
-                  className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-[#151515] border-2 border-[#151515] shadow-sticker font-display font-black text-xs sm:text-sm tracking-wider uppercase hover:-translate-y-1 hover:bg-[#FFD52E] hover:shadow-sticker-lg active:translate-x-0.5 active:translate-y-0.5 transition-all duration-200"
+                  className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white font-display font-black text-xs sm:text-sm tracking-wider uppercase shadow-[0_0_20px_rgba(236,72,153,0.4)] hover:shadow-[0_0_30px_rgba(236,72,153,0.7)] hover:scale-105 active:scale-95 transition-all duration-200"
                 >
                   <span>EXPLORE MY TECH STACK</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
                 </a>
-
-                {/* Hand-drawn curved arrow doodle */}
-                <div className="text-white pointer-events-none hidden sm:block">
-                  <DoodleArrowCurved className="w-12 h-8 text-white rotate-[-20deg]" />
-                </div>
               </div>
             </div>
 
-            {/* Right Column: Lined Paper Notebook with Binder Clip */}
+            {/* Right Column: Currently Exploring Cosmic Focus Card */}
             <div className="lg:col-span-5 flex justify-center items-center mt-4 lg:mt-0">
-              <div className="relative w-full max-w-md bg-white text-[#151515] rounded-3xl border-4 border-[#151515] shadow-sticker-lg p-5 sm:p-7 pt-9 sm:pt-11 rotate-[1deg] hover:rotate-0 hover:scale-[1.01] hover:shadow-sticker-xl transition-all duration-200">
-                {/* Black Binder Clip Pinning the Notebook at Top */}
-                <div className="absolute -top-5 sm:-top-6 left-1/2 -translate-x-1/2 z-20">
-                  <DoodleBinderClip className="w-11 h-11 sm:w-12 sm:h-12" />
-                </div>
-
-                {/* Notebook Header */}
-                <div className="flex items-center justify-between border-b-2 border-[#151515] pb-3 mb-4">
+              <div className="relative w-full max-w-md bg-space-900/90 text-white rounded-3xl border border-purple-500/40 p-6 sm:p-8 shadow-[0_0_35px_rgba(168,85,247,0.2)] hover:border-pink-500/50 hover:shadow-[0_0_45px_rgba(236,72,153,0.3)] transition-all duration-300">
+                {/* Header */}
+                <div className="flex items-center justify-between border-b border-purple-500/25 pb-4 mb-5">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#1749E8]" />
-                    <h3 className="font-display font-black text-base sm:text-xl text-[#151515] uppercase tracking-wide">
+                    <Sparkles className="w-5 h-5 text-pink-400 animate-pulse" />
+                    <h3 className="font-display font-black text-base sm:text-lg text-white uppercase tracking-wider">
                       CURRENTLY EXPLORING:
                     </h3>
                   </div>
-                  <span className="font-mono text-[10px] sm:text-xs font-bold text-[#1749E8] bg-[#EEF2FF] px-2 py-0.5 rounded border border-[#1749E8]">
+                  <span className="font-mono text-[10px] font-bold text-pink-300 bg-pink-950/60 px-2.5 py-0.5 rounded-full border border-pink-500/30">
                     2026 FOCUS
                   </span>
                 </div>
 
-                {/* Checklist of Real Technical Interests */}
-                <ul className="space-y-2.5 sm:space-y-3 font-medium text-xs sm:text-sm text-[#334155]">
-                  <li className="flex items-start gap-2.5 hover:text-[#1749E8] transition-colors">
-                    <span className="text-base leading-none">🚀</span>
+                {/* Checklist */}
+                <ul className="space-y-3.5 font-medium text-xs sm:text-sm text-purple-200/85">
+                  <li className="flex items-start gap-3 hover:text-white transition-colors group">
+                    <span className="text-base p-1.5 rounded-lg bg-purple-950/60 border border-purple-500/30 shrink-0">🚀</span>
                     <div>
-                      <strong className="text-[#151515] font-bold">Next.js 14/15 App Router:</strong> Server components, streaming &amp; static generation
+                      <strong className="text-white font-bold block">Next.js 14/15 App Router:</strong> Server components, streaming &amp; static optimization
                     </div>
                   </li>
-                  <li className="flex items-start gap-2.5 hover:text-[#1749E8] transition-colors">
-                    <span className="text-base leading-none">⚡</span>
+                  <li className="flex items-start gap-3 hover:text-white transition-colors group">
+                    <span className="text-base p-1.5 rounded-lg bg-pink-950/60 border border-pink-500/30 shrink-0">⚡</span>
                     <div>
-                      <strong className="text-[#151515] font-bold">Backend Architecture:</strong> RESTful APIs, auth pipelines &amp; Node.js/Express
+                      <strong className="text-white font-bold block">Backend Architecture:</strong> RESTful microservices, auth pipelines &amp; Node.js/Express
                     </div>
                   </li>
-                  <li className="flex items-start gap-2.5 hover:text-[#1749E8] transition-colors">
-                    <span className="text-base leading-none">🤖</span>
+                  <li className="flex items-start gap-3 hover:text-white transition-colors group">
+                    <span className="text-base p-1.5 rounded-lg bg-red-950/60 border border-red-500/30 shrink-0">🤖</span>
                     <div>
-                      <strong className="text-[#151515] font-bold">AI/ML &amp; Python FastAPI:</strong> Anomaly detection, model integration &amp; async services
+                      <strong className="text-white font-bold block">AI/ML &amp; Python FastAPI:</strong> Anomaly detection, model integration &amp; async APIs
                     </div>
                   </li>
-                  <li className="flex items-start gap-2.5 hover:text-[#1749E8] transition-colors">
-                    <span className="text-base leading-none">🗄️</span>
+                  <li className="flex items-start gap-3 hover:text-white transition-colors group">
+                    <span className="text-base p-1.5 rounded-lg bg-purple-950/60 border border-purple-500/30 shrink-0">🗄️</span>
                     <div>
-                      <strong className="text-[#151515] font-bold">Database Engineering:</strong> MongoDB &amp; MySQL schema design, indexing &amp; CRUD
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2.5 hover:text-[#1749E8] transition-colors">
-                    <span className="text-base leading-none">🎨</span>
-                    <div>
-                      <strong className="text-[#151515] font-bold">Full-Stack Products:</strong> End-to-end applications from scratch to deployment
+                      <strong className="text-white font-bold block">Database Engineering:</strong> MongoDB &amp; MySQL schema design, indexing &amp; CRUD
                     </div>
                   </li>
                 </ul>
 
-                {/* Hand-Drawn Red Heart at Bottom Right */}
-                <div className="flex justify-between items-end pt-3 sm:pt-4 mt-4 border-t border-slate-200">
-                  <span className="font-handwriting text-sm sm:text-base font-bold text-[#64748B]">
-                    Always learning &amp; building ✨
+                {/* Footer Note with Heart */}
+                <div className="flex justify-between items-center pt-4 mt-5 border-t border-purple-500/20">
+                  <span className="font-handwriting text-sm sm:text-base font-bold text-pink-300">
+                    Always building &amp; learning ✨
                   </span>
-                  <DoodleHeart className="w-6 h-6 sm:w-7 sm:h-7 text-[#F43B2F] hover:scale-125 transition-transform cursor-pointer" />
+                  <DoodleHeart className="w-5 h-5 text-pink-500 animate-pulse hover:scale-125 transition-transform cursor-pointer" />
                 </div>
               </div>
             </div>

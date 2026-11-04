@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
-import { Logo } from "../ui/Logo";
-import { DoodleArrowUpRight } from "../ui/Doodles";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { DoodleSmiley, DoodleArrowUpRight } from "../ui/Doodles";
+import { Menu, X, ArrowRight, Sparkles } from "lucide-react";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,7 +14,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 15);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -86,18 +86,34 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "py-3 bg-[#FFFDF7]/95 backdrop-blur-md border-b-2 border-[#151515] shadow-sm"
-            : "py-4 sm:py-5 bg-[#FFFDF7]"
+            ? "py-3 bg-[#0A0514]/90 backdrop-blur-xl border-b border-purple-500/25 shadow-2xl shadow-purple-950/40"
+            : "py-4 sm:py-5 bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Wordmark with Smiley */}
-            <Logo />
+            {/* Logo: SURAj + DoodleSmiley + VISHWAKARMA with Glowing Neon Gradient */}
+            <Link
+              href="#home"
+              className="group flex items-center gap-2 select-none focus:outline-none rounded-xl p-1 transition-transform active:scale-95"
+              aria-label="Suraj Vishwakarma - Home"
+            >
+              <div className="flex flex-col text-left leading-none">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight group-hover:text-[#EC4899] transition-colors">
+                    SURAj
+                  </span>
+                  <DoodleSmiley className="w-5 h-5 sm:w-6 sm:h-6 text-[#EC4899] group-hover:rotate-45 group-hover:scale-125 transition-transform duration-200" />
+                </div>
+                <span className="font-display font-extrabold text-[10px] sm:text-xs tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-500 to-purple-400 mt-0.5">
+                  VISHWAKARMA • FULL-STACK
+                </span>
+              </div>
+            </Link>
 
-            {/* Center Navigation Links (matching reference uppercase nav) */}
+            {/* Desktop Navigation Links */}
             <nav
-              className="hidden lg:flex items-center gap-7 xl:gap-8"
+              className="hidden lg:flex items-center gap-6 xl:gap-8 px-5 py-2 rounded-full bg-space-850/60 border border-purple-500/20 backdrop-blur-md shadow-lg"
               aria-label="Main Navigation"
             >
               {siteConfig.navLinks.map((link) => {
@@ -108,33 +124,34 @@ export function Navbar() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className={`text-xs xl:text-sm font-bold tracking-widest uppercase transition-colors relative py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1749E8] rounded ${
+                    className={`text-xs xl:text-sm font-display font-extrabold tracking-wider uppercase transition-all relative py-1 focus:outline-none rounded ${
                       isActive
-                        ? "text-[#1749E8] font-black"
-                        : "text-[#151515] hover:text-[#1749E8]"
+                        ? "text-[#EC4899] font-black drop-shadow-[0_0_8px_rgba(236,72,153,0.6)]"
+                        : "text-purple-200/80 hover:text-white hover:drop-shadow-[0_0_6px_rgba(168,85,247,0.5)]"
                     }`}
                   >
                     {link.label}
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#1749E8] rounded-full" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 rounded-full shadow-[0_0_8px_#EC4899]" />
                     )}
                   </a>
                 );
               })}
             </nav>
 
-            {/* Right Action: "LET'S BUILD SOMETHING" Yellow CTA Pill */}
-            <div className="hidden md:flex items-center gap-2 relative">
+            {/* Right Action: Glowing Neon CTA Button */}
+            <div className="hidden md:flex items-center gap-3 relative">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#FFD52E] text-[#151515] border-2 border-[#151515] shadow-sticker font-display font-black text-xs xl:text-sm tracking-wider uppercase hover:shadow-sticker-hover hover:translate-x-0.5 hover:translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1749E8]"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white font-display font-black text-xs xl:text-sm tracking-wider uppercase shadow-[0_0_20px_rgba(236,72,153,0.5)] hover:shadow-[0_0_30px_rgba(236,72,153,0.8)] hover:scale-105 active:scale-95 transition-all"
               >
-                LET&apos;S BUILD SOMETHING
+                <span>LET&apos;S CONNECT</span>
+                <Sparkles className="w-3.5 h-3.5 text-white animate-pulse" />
               </a>
 
-              {/* Hand-drawn arrow pointing to CTA button on large screens */}
-              <div className="absolute -bottom-8 -right-8 pointer-events-none hidden xl:block">
-                <DoodleArrowUpRight className="w-10 h-8 text-[#151515]" />
+              {/* Hand-drawn arrow pointing to CTA on large screens */}
+              <div className="absolute -bottom-7 -right-7 pointer-events-none hidden xl:block opacity-60">
+                <DoodleArrowUpRight className="w-9 h-7 text-pink-400" />
               </div>
             </div>
 
@@ -142,19 +159,19 @@ export function Navbar() {
             <div className="flex lg:hidden items-center gap-2">
               <a
                 href="#contact"
-                className="hidden sm:inline-flex md:hidden items-center justify-center px-4 py-2 rounded-full bg-[#FFD52E] text-[#151515] border-2 border-[#151515] shadow-sticker font-display font-extrabold text-xs tracking-wider uppercase"
+                className="inline-flex sm:hidden items-center justify-center px-3.5 py-1.5 rounded-full bg-gradient-to-r from-red-500 to-pink-500 text-white font-display font-black text-[11px] tracking-wider uppercase shadow-[0_0_12px_rgba(236,72,153,0.5)]"
               >
-                LET&apos;S TALK
+                CONNECT
               </a>
 
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2.5 rounded-xl border-2 border-[#151515] bg-white text-[#151515] shadow-sticker focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1749E8] active:translate-x-0.5 active:translate-y-0.5 transition-all"
+                className="p-2.5 rounded-xl border border-purple-500/30 bg-space-850/80 text-white backdrop-blur-md shadow-lg focus:outline-none active:scale-95 transition-all"
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileMenuOpen}
               >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {mobileMenuOpen ? <X className="w-5 h-5 text-pink-400" /> : <Menu className="w-5 h-5 text-purple-300" />}
               </button>
             </div>
           </div>
@@ -167,28 +184,35 @@ export function Navbar() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation Menu"
-          className="fixed inset-0 z-50 lg:hidden bg-black/40 backdrop-blur-xs flex justify-end animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 lg:hidden bg-black/75 backdrop-blur-md flex justify-end animate-in fade-in duration-200"
         >
           <div
             ref={mobileMenuRef}
-            className="w-4/5 max-w-sm h-full bg-[#FFFDF7] border-l-4 border-[#151515] p-6 flex flex-col justify-between shadow-2xl overflow-y-auto animate-in slide-in-from-right duration-200"
+            className="w-4/5 max-w-sm h-full bg-[#0A0514]/95 border-l border-purple-500/30 p-6 flex flex-col justify-between shadow-2xl overflow-y-auto animate-in slide-in-from-right duration-200"
           >
             <div>
-              {/* Drawer Top Header */}
-              <div className="flex items-center justify-between pb-6 border-b-2 border-[#151515] mb-6">
-                <Logo />
+              {/* Drawer Top Header with Logo & Close */}
+              <div className="flex items-center justify-between pb-5 border-b border-purple-500/20 mb-6">
+                <div className="flex flex-col text-left leading-none">
+                  <span className="font-display font-black text-2xl text-white tracking-tight">
+                    SURAj
+                  </span>
+                  <span className="font-display font-extrabold text-[10px] text-pink-400 uppercase tracking-widest">
+                    VISHWAKARMA
+                  </span>
+                </div>
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 rounded-xl border-2 border-[#151515] bg-white text-[#151515] shadow-sticker focus:outline-none"
+                  className="p-2 rounded-xl border border-purple-500/30 bg-space-800 text-white focus:outline-none"
                   aria-label="Close menu"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-5 h-5 text-pink-400" />
                 </button>
               </div>
 
-              {/* Navigation Links */}
-              <nav className="flex flex-col gap-3">
+              {/* Navigation Links with Glowing Hover States */}
+              <nav className="flex flex-col gap-2.5">
                 {siteConfig.navLinks.map((link) => {
                   const sectionId = link.href.replace("#", "");
                   const isActive = activeSection === sectionId;
@@ -198,14 +222,14 @@ export function Navbar() {
                       key={link.label}
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`flex items-center justify-between px-4 py-3 rounded-xl border-2 transition-all font-display font-bold text-base tracking-wider uppercase ${
+                      className={`flex items-center justify-between px-4 py-3 rounded-xl border transition-all font-display font-bold text-sm tracking-wider uppercase ${
                         isActive
-                          ? "bg-[#1749E8] text-white border-[#151515] shadow-sticker"
-                          : "bg-white text-[#151515] border-[#151515] hover:bg-slate-50"
+                          ? "bg-gradient-to-r from-red-500/20 via-pink-500/20 to-purple-500/20 text-pink-300 border-pink-500/40 shadow-[0_0_15px_rgba(236,72,153,0.3)]"
+                          : "bg-space-850/50 text-purple-200/80 border-purple-500/15 hover:bg-purple-950/30 hover:text-white"
                       }`}
                     >
                       <span>{link.label}</span>
-                      <ArrowRight className="w-4 h-4 opacity-70" />
+                      <ArrowRight className="w-4 h-4 opacity-70 text-pink-400" />
                     </a>
                   );
                 })}
@@ -213,17 +237,17 @@ export function Navbar() {
             </div>
 
             {/* Bottom CTA in Mobile Drawer */}
-            <div className="pt-6 border-t-2 border-[#151515] mt-6">
+            <div className="pt-5 border-t border-purple-500/20 mt-6">
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#FFD52E] text-[#151515] border-2 border-[#151515] shadow-sticker font-display font-black text-sm tracking-wider uppercase hover:shadow-sticker-hover active:translate-x-0.5 active:translate-y-0.5 transition-all text-center"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-full bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white font-display font-black text-sm tracking-wider uppercase shadow-[0_0_20px_rgba(236,72,153,0.5)] active:scale-95 transition-all text-center"
               >
-                <span>LET&apos;S BUILD SOMETHING</span>
+                <span>LET&apos;S CONNECT</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <p className="text-center font-handwriting text-base font-bold text-[#151515] mt-3">
-                Based in Bhayandar, Mumbai 🚀
+              <p className="text-center font-handwriting text-base font-bold text-pink-400 mt-3">
+                Full-Stack Developer 🚀
               </p>
             </div>
           </div>

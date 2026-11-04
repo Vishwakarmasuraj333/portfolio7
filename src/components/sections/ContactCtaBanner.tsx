@@ -4,56 +4,68 @@ import React from "react";
 import {
   DoodleStarburstBlue,
   DoodleTelephone,
-  DoodleArrowCurved,
 } from "../ui/Doodles";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles, MessageSquare, Send } from "lucide-react";
 
 export function ContactCtaBanner() {
   return (
-    <section className="py-12 sm:py-16 bg-[#FFFDF7] relative">
+    <section className="py-14 sm:py-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Bright Yellow CTA Panel */}
-        <div className="group relative rounded-[2rem] sm:rounded-[3rem] lg:rounded-[3.5rem] bg-[#FFD52E] border-4 border-[#151515] p-5 sm:p-8 md:p-10 lg:p-12 shadow-sticker-lg hover:shadow-sticker-xl transition-all duration-300 text-[#151515] overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
-            {/* Left: Royal Blue Starburst with Cute Eyes */}
-            <div className="lg:col-span-2 hidden lg:flex justify-center items-center">
-              <DoodleStarburstBlue className="w-24 h-24 drop-shadow-md animate-bounce group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" style={{ animationDuration: "3s" }} />
-            </div>
+        {/* Deep Cosmic Red-Pink-Purple CTA Panel */}
+        <div className="group relative rounded-[2.5rem] sm:rounded-[3.5rem] bg-gradient-to-r from-red-950/70 via-purple-950/80 to-pink-950/70 border border-purple-500/40 p-7 sm:p-10 md:p-12 lg:p-14 shadow-[0_0_50px_rgba(236,72,153,0.2)] hover:shadow-[0_0_70px_rgba(236,72,153,0.35)] transition-all duration-500 text-white overflow-hidden backdrop-blur-2xl">
+          {/* Ambient Glowing Gradients inside banner */}
+          <div className="absolute top-0 right-1/4 w-72 h-72 rounded-full bg-pink-500/15 blur-[90px] pointer-events-none group-hover:scale-125 transition-transform duration-700" />
+          <div className="absolute bottom-0 left-1/4 w-72 h-72 rounded-full bg-purple-600/20 blur-[90px] pointer-events-none" />
 
-            {/* Center: Main Headline, Subtext, & Black Pill CTA */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left">
-              <h2 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-[#151515] leading-[1.1] mb-3">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center relative z-10">
+            {/* Center: Main Headline, Subtext, & Glowing Neon Pill CTA */}
+            <div className="lg:col-span-8 flex flex-col items-start text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-950/70 border border-purple-500/30 text-xs font-mono font-bold uppercase tracking-wider text-pink-300 mb-4 shadow-[0_0_12px_rgba(168,85,247,0.2)]">
+                <Sparkles className="w-3.5 h-3.5 text-pink-400" />
+                <span>START A CONVERSATION</span>
+              </div>
+
+              <h2 className="font-display font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-white leading-[1.08] mb-4">
                 READY TO BUILD SOMETHING <br />
-                <span className="text-[#1749E8] doodle-underline inline-block hover:scale-[1.02] transition-transform origin-left">
-                  THAT WORKS?
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-500 to-purple-400 drop-shadow-[0_0_20px_rgba(236,72,153,0.4)]">
+                  EXTRAORDINARY?
                 </span>
               </h2>
 
-              <p className="text-xs sm:text-sm md:text-base font-medium text-[#151515]/90 max-w-lg mb-6 leading-relaxed">
-                Have an idea, a project, or an opportunity? Let&apos;s connect and turn it into something useful, responsive, and reliable.
+              <p className="text-sm sm:text-base text-purple-200/90 max-w-xl mb-7 leading-relaxed font-normal">
+                Have an idea, an engineering opportunity, or a project in mind? Let&apos;s connect and turn high standards into scalable, responsive, and reliable software.
               </p>
 
               <a
                 href="#contact"
-                className="group/btn inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#151515] text-white border-2 border-[#151515] shadow-sticker font-display font-black text-xs sm:text-sm tracking-wider uppercase hover:bg-black hover:shadow-sticker-lg hover:-translate-y-1 active:translate-x-0.5 active:translate-y-0.5 transition-all duration-200 focus:outline-none focus-visible:ring-3 focus-visible:ring-white"
+                className="group/btn inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white border border-pink-400/40 shadow-[0_0_25px_rgba(236,72,153,0.4)] font-display font-extrabold text-xs sm:text-sm tracking-wider uppercase hover:shadow-[0_0_40px_rgba(236,72,153,0.7)] hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none"
               >
-                <span>LET&apos;S TALK</span>
-                <ArrowRight className="w-4 h-4 text-[#FFD52E] group-hover/btn:translate-x-1.5 transition-transform duration-200" />
+                <span>LET&apos;S TALK CODE</span>
+                <Send className="w-4 h-4 text-pink-200 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-200" />
               </a>
             </div>
 
-            {/* Right: Retro Red Telephone Sticker with "DM ME ANYTIME!" Speech Bubble */}
-            <div className="lg:col-span-3 flex justify-center items-center relative mt-4 lg:mt-0">
+            {/* Right: Retro Cosmic Communication Widget */}
+            <div className="lg:col-span-4 flex justify-center items-center relative mt-4 lg:mt-0">
               <div className="relative group/phone cursor-pointer">
-                {/* Red Telephone Sticker with hover wiggle */}
-                <DoodleTelephone className="w-32 h-28 sm:w-40 sm:h-36 drop-shadow-lg group-hover/phone:animate-wiggle group-hover/phone:scale-105 transition-transform duration-200" />
+                {/* Glowing Cosmic Badge */}
+                <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-gradient-to-tr from-purple-900/60 via-pink-900/50 to-red-900/40 border border-purple-500/40 shadow-[0_0_35px_rgba(168,85,247,0.3)] flex items-center justify-center group-hover/phone:scale-110 group-hover/phone:rotate-6 transition-all duration-300">
+                  <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-space-900/90 border border-pink-500/50 flex flex-col items-center justify-center text-center p-3">
+                    <MessageSquare className="w-8 h-8 text-pink-400 mb-1 group-hover/phone:animate-bounce" />
+                    <span className="font-mono text-[10px] text-purple-300 uppercase tracking-widest">
+                      FAST RESPONSE
+                    </span>
+                    <span className="font-display font-black text-xs text-white">
+                      &lt; 24 HOURS
+                    </span>
+                  </div>
+                </div>
 
                 {/* Speech Bubble: "DM ME ANYTIME!" */}
-                <div className="absolute -top-3 -right-2 sm:-right-6 bg-white border-2 border-[#151515] px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-2xl shadow-sticker rotate-[8deg] group-hover/phone:rotate-0 group-hover/phone:scale-110 transition-all duration-200">
-                  <span className="font-display font-black text-xs sm:text-sm text-[#151515] tracking-wider uppercase">
-                    DM ME ANYTIME!
+                <div className="absolute -top-3 -right-2 sm:-right-4 bg-space-900/95 border border-pink-500/50 px-3.5 py-1.5 rounded-2xl shadow-[0_0_15px_rgba(236,72,153,0.3)] rotate-[8deg] group-hover/phone:rotate-0 group-hover/phone:scale-110 transition-all duration-300">
+                  <span className="font-display font-black text-xs text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-300 tracking-wider uppercase">
+                    DM ME ANYTIME! ⚡
                   </span>
-                  <div className="absolute -bottom-1.5 left-4 w-3 h-3 bg-white border-r-2 border-b-2 border-[#151515] rotate-45" />
                 </div>
               </div>
             </div>

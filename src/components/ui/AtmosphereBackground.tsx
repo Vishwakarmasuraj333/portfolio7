@@ -19,7 +19,6 @@ export function AtmosphereBackground() {
 
     // Desktop pointer spotlight
     const handleMouseMove = (e: MouseEvent) => {
-      // Only track if pointer is mouse (not touch)
       if (window.matchMedia("(pointer: fine)").matches) {
         setMousePos({ x: e.clientX, y: e.clientY });
       }
@@ -33,7 +32,7 @@ export function AtmosphereBackground() {
     };
   }, []);
 
-  // Champagne micro-particles canvas
+  // Multi-colored cosmic stardust particles canvas
   useEffect(() => {
     if (prefersReducedMotion) return;
 
@@ -53,28 +52,38 @@ export function AtmosphereBackground() {
     };
     window.addEventListener("resize", handleResize);
 
-    // Generate tasteful champagne constellation points
-    const particleCount = Math.min(35, Math.floor(width / 40));
+    // Palette for cosmic particles: Neon Purple, Pink, Crimson Red, White
+    const colors = [
+      "rgba(168, 85, 247, ",  // Purple
+      "rgba(236, 72, 153, ",  // Pink
+      "rgba(239, 68, 68, ",   // Red
+      "rgba(255, 255, 255, ", // White Star
+      "rgba(244, 63, 94, ",   // Rose
+    ];
+
+    const particleCount = Math.min(65, Math.floor(width / 25));
     const particles: Array<{
       x: number;
       y: number;
       size: number;
       speedX: number;
       speedY: number;
-      opacity: number;
+      colorPrefix: string;
       baseOpacity: number;
+      twinkleSpeed: number;
     }> = [];
 
     for (let i = 0; i < particleCount; i++) {
-      const baseOpacity = 0.15 + Math.random() * 0.35;
+      const baseOpacity = 0.2 + Math.random() * 0.5;
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: 0.8 + Math.random() * 1.5,
-        speedX: (Math.random() - 0.5) * 0.2,
-        speedY: (Math.random() - 0.5) * 0.2,
-        opacity: baseOpacity,
+        size: 0.8 + Math.random() * 1.8,
+        speedX: (Math.random() - 0.5) * 0.25,
+        speedY: (Math.random() - 0.5) * 0.25,
+        colorPrefix: colors[Math.floor(Math.random() * colors.length)],
         baseOpacity,
+        twinkleSpeed: 0.015 + Math.random() * 0.025,
       });
     }
 
@@ -92,13 +101,15 @@ export function AtmosphereBackground() {
         if (p.y < 0) p.y = height;
         if (p.y > height) p.y = 0;
 
-        // Subtle shimmer
-        const shimmer = Math.sin(tick * 0.02 + idx) * 0.1;
-        const currentOpacity = Math.max(0.05, Math.min(0.6, p.baseOpacity + shimmer));
+        // Smooth sinusoidal twinkle
+        const shimmer = Math.sin(tick * p.twinkleSpeed + idx) * 0.25;
+        const currentOpacity = Math.max(0.1, Math.min(0.85, p.baseOpacity + shimmer));
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(214, 180, 119, ${currentOpacity})`;
+        ctx.fillStyle = `${p.colorPrefix}${currentOpacity})`;
+        ctx.shadowColor = p.colorPrefix === "rgba(255, 255, 255, " ? "#FFFFFF" : "#EC4899";
+        ctx.shadowBlur = p.size > 1.5 ? 4 : 0;
         ctx.fill();
       });
 
@@ -118,40 +129,42 @@ export function AtmosphereBackground() {
       className="fixed inset-0 pointer-events-none -z-10 overflow-hidden"
       aria-hidden="true"
     >
-      {/* Deep Burgundy Base Layer with luxury gradient shifts */}
-      <div className="absolute inset-0 bg-maroon-950 dark:bg-maroon-950 transition-colors duration-500" />
+      {/* Deep Cosmic Void Base Layer */}
+      <div className="absolute inset-0 bg-[#07030C]" />
 
-      {/* Atmospheric Radial Gradients */}
-      <div className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-maroon-900/60 dark:bg-maroon-900/60 blur-[130px]" />
-      <div className="absolute top-[35%] -right-[15%] w-[55vw] h-[55vw] rounded-full bg-maroon-850/50 dark:bg-maroon-850/50 blur-[140px]" />
-      <div className="absolute -bottom-[15%] left-[20%] w-[50vw] h-[50vw] rounded-full bg-maroon-900/40 dark:bg-maroon-900/40 blur-[120px]" />
+      {/* Atmospheric Cosmic Radial Nebulas: Purple, Pink, Crimson Red */}
+      <div className="absolute -top-[15%] -left-[10%] w-[65vw] h-[65vw] rounded-full bg-purple-900/40 blur-[140px] pointer-events-none" />
+      <div className="absolute top-[25%] -right-[15%] w-[60vw] h-[60vw] rounded-full bg-pink-600/25 blur-[150px] pointer-events-none" />
+      <div className="absolute top-[65%] -left-[10%] w-[55vw] h-[55vw] rounded-full bg-red-600/25 blur-[140px] pointer-events-none" />
+      <div className="absolute -bottom-[20%] right-[10%] w-[50vw] h-[50vw] rounded-full bg-fuchsia-900/35 blur-[130px] pointer-events-none" />
 
-      {/* Subtle Desktop Spotlight */}
+      {/* Interactive Cursor Spotlight Glow */}
       {mousePos && (
         <div
-          className="absolute w-[450px] h-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none transition-opacity duration-300"
+          className="absolute w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none transition-opacity duration-300"
           style={{
             left: `${mousePos.x}px`,
             top: `${mousePos.y}px`,
             background:
-              "radial-gradient(circle, rgba(214, 180, 119, 0.04) 0%, rgba(100, 30, 50, 0.03) 40%, transparent 70%)",
+              "radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, rgba(236, 72, 153, 0.05) 35%, rgba(239, 68, 68, 0.02) 60%, transparent 80%)",
           }}
         />
       )}
 
-      {/* Subtle Noise Texture Overlay */}
+      {/* Subtle Cosmic Dust Grid Overlay */}
       <div
-        className="absolute inset-0 opacity-[0.025] dark:opacity-[0.03] mix-blend-overlay pointer-events-none"
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          backgroundImage:
+            "linear-gradient(to right, #EC4899 1px, transparent 1px), linear-gradient(to bottom, #A855F7 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
         }}
       />
 
-      {/* Champagne Floating Micro-particles Canvas */}
+      {/* Twinkling Cosmic Stardust Particles Canvas */}
       {!prefersReducedMotion && (
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       )}
     </div>
   );
 }
-
