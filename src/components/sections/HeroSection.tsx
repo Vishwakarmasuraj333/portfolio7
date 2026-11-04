@@ -5,6 +5,7 @@ import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { TypewriterSubtitle } from "../ui/TypewriterSubtitle";
 import { HeroScene } from "../three/HeroScene";
+import { InteractiveHeroPortrait } from "../ui/InteractiveHeroPortrait";
 import { ResumeModal } from "../ui/ResumeModal";
 import {
   ArrowRight,
@@ -22,7 +23,7 @@ import {
 
 export function HeroSection() {
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
-  const [viewMode, setViewMode] = useState<"3d" | "portrait">("3d");
+  const [viewMode, setViewMode] = useState<"3d" | "portrait">("portrait");
 
   return (
     <section
@@ -211,21 +212,9 @@ export function HeroSection() {
                   </div>
                 </div>
               ) : (
-                /* Suraj Vishwakarma's Official Studio Portrait */
-                <div className="relative w-[280px] h-[360px] sm:w-[320px] sm:h-[400px] rounded-[2.5rem] p-1.5 bg-gradient-to-b from-red-500 via-pink-500 to-purple-600 shadow-[0_0_35px_rgba(236,72,153,0.4)] animate-in fade-in duration-300">
-                  <div className="relative w-full h-full rounded-[2.2rem] overflow-hidden bg-space-900 border-2 border-space-850">
-                    <Image
-                      src="/images/suraj-portrait.jpg"
-                      alt="Suraj Vishwakarma — Full-Stack Developer"
-                      fill
-                      priority
-                      className="object-cover object-top hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0A0514] via-[#0A0514]/60 to-transparent pointer-events-none" />
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 px-4 py-1.5 rounded-full bg-space-900/95 border border-pink-500/40 text-pink-300 text-xs font-display font-black tracking-wider uppercase whitespace-nowrap shadow-lg">
-                      Suraj Vishwakarma • Pro
-                    </div>
-                  </div>
+                /* Suraj Vishwakarma's Interactive Studio Portrait with Eyes Look-Open Animation & 3D Tilt */
+                <div className="w-full flex items-center justify-center animate-in fade-in duration-300">
+                  <InteractiveHeroPortrait />
                 </div>
               )}
             </div>

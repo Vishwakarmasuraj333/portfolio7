@@ -145,8 +145,6 @@ export function EducationSection() {
                   Abhinav College Scholar
                 </span>
                 <Sparkles className="w-4 h-4 text-pink-400 group-hover:rotate-45 group-hover:scale-125 transition-transform" />
-
-
               </div>
             </div>
           ))}
