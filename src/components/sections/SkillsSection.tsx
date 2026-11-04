@@ -151,7 +151,7 @@ export function SkillsSection() {
               SKILLS
             </h2>
             {/* Hand-drawn underline squiggle */}
-            <svg viewBox="0 0 100 12" className="w-24 sm:w-32 h-3 text-[#CCFF00] -mt-1">
+            <svg viewBox="0 0 100 12" className="w-24 sm:w-32 h-3 text-pink-400 -mt-1 drop-shadow-[0_0_8px_rgba(236,72,153,0.5)]">
               <path d="M2 8 C25 2, 50 12, 75 4 C85 2, 95 8, 98 6" stroke="currentColor" strokeWidth="3" fill="none" strokeLinecap="round" />
             </svg>
           </div>
@@ -165,7 +165,7 @@ export function SkillsSection() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-3 py-1.5 rounded-full font-display font-bold text-xs uppercase tracking-wider transition-all duration-200 border ${
                   activeCategory === cat
-                    ? "bg-[#CCFF00] text-[#0A0514] font-black border-[#CCFF00] shadow-[0_0_12px_rgba(204,255,0,0.5)] -translate-y-0.5"
+                    ? "bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white font-black border-pink-400 shadow-[0_0_15px_rgba(236,72,153,0.4)] -translate-y-0.5"
                     : "bg-[#111322] text-gray-300 border-white/10 hover:border-purple-400 hover:text-white"
                 }`}
               >
@@ -194,7 +194,7 @@ export function SkillsSection() {
                 </div>
 
                 {/* Skill Name */}
-                <h3 className="font-display font-black text-xs sm:text-sm text-white group-hover:text-[#CCFF00] transition-colors tracking-wide">
+                <h3 className="font-display font-black text-xs sm:text-sm text-white group-hover:text-pink-400 transition-colors tracking-wide">
                   {skill.name}
                 </h3>
                 <span className="text-[10px] text-gray-400 font-mono mt-0.5 uppercase tracking-wider">

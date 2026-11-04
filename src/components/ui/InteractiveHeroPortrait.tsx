@@ -142,52 +142,52 @@ export function InteractiveHeroPortrait() {
             <DoodleStar className="w-6 h-6 text-[#FFD52E] animate-spinSlow" />
           </div>
 
-          {/* 5. MID-LEFT: React.js & Next.js Yellow/Cosmic Pill */}
+          {/* 5. MID-LEFT: React.js & Next.js Cosmic Pill */}
           <div
-            className={`absolute top-24 -left-4 sm:-left-8 z-20 transition-all duration-300 ${
-              isHovered ? "-translate-x-2 rotate-[-4deg]" : "rotate-[-2deg]"
+            className={`absolute top-24 -left-2 xs:-left-4 sm:-left-7 z-20 transition-all duration-300 ${
+              isHovered ? "-translate-x-1.5 rotate-[-4deg]" : "rotate-[-2deg]"
             }`}
             style={{ transform: "translateZ(25px)" }}
           >
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-display font-black text-[11px] shadow-[0_0_14px_rgba(251,191,36,0.5)] border border-yellow-200">
-              <DoodleStar className="w-3.5 h-3.5 text-slate-950" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-space-900/95 text-cyan-300 font-display font-black text-[11px] shadow-[0_0_14px_rgba(6,182,212,0.4)] border border-cyan-400/60 backdrop-blur-md">
+              <DoodleStar className="w-3.5 h-3.5 text-cyan-300" />
               <span>React.js &amp; Next.js</span>
             </div>
           </div>
 
           {/* 6. MID-RIGHT: 9.04 CGPA Distinction Honors Pill */}
           <div
-            className={`absolute top-28 -right-4 sm:-right-8 z-20 transition-all duration-300 ${
-              isHovered ? "translate-x-2 rotate-[4deg]" : "rotate-[2deg]"
+            className={`absolute top-28 -right-2 xs:-right-4 sm:-right-7 z-20 transition-all duration-300 ${
+              isHovered ? "translate-x-1.5 rotate-[4deg]" : "rotate-[2deg]"
             }`}
             style={{ transform: "translateZ(25px)" }}
           >
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-space-850/95 border border-[#CCFF00] text-[#CCFF00] font-display font-black text-[11px] shadow-[0_0_14px_rgba(204,255,0,0.4)] backdrop-blur-md">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-space-900/95 border border-pink-500/50 text-pink-300 font-display font-black text-[11px] shadow-[0_0_16px_rgba(236,72,153,0.35)] backdrop-blur-md">
               <span>9.04 CGPA Honors</span>
-              <span className="text-[#CCFF00]">🏆</span>
+              <span>🏆</span>
             </div>
           </div>
 
           {/* 7. LOWER-LEFT: Python & FastAPI Pill */}
           <div
-            className={`absolute bottom-20 -left-3 sm:-left-6 z-20 transition-all duration-300 ${
+            className={`absolute bottom-20 -left-2 xs:-left-3 sm:-left-6 z-20 transition-all duration-300 ${
               isHovered ? "-translate-x-1.5 rotate-[3deg]" : "-rotate-[1deg]"
             }`}
             style={{ transform: "translateZ(20px)" }}
           >
-            <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-space-850/95 border border-purple-500/50 text-purple-300 font-display font-extrabold text-[11px] shadow-[0_0_14px_rgba(168,85,247,0.3)] backdrop-blur-md">
+            <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-space-900/95 border border-purple-500/50 text-purple-300 font-display font-extrabold text-[11px] shadow-[0_0_14px_rgba(168,85,247,0.3)] backdrop-blur-md">
               <span>Python, MySQL &amp; APIs</span>
             </div>
           </div>
 
           {/* 8. LOWER-RIGHT: Clean Code Heart Badge */}
           <div
-            className={`absolute bottom-14 -right-3 sm:-right-6 z-20 transition-all duration-300 ${
-              isHovered ? "translate-x-1.5 scale-110 rotate-[-4deg]" : "rotate-[-2deg]"
+            className={`absolute bottom-14 -right-2 xs:-right-3 sm:-right-6 z-20 transition-all duration-300 ${
+              isHovered ? "translate-x-1.5 scale-105 rotate-[-4deg]" : "rotate-[-2deg]"
             }`}
             style={{ transform: "translateZ(20px)" }}
           >
-            <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gradient-to-r from-red-600 to-rose-600 text-white font-display font-black text-[11px] shadow-[0_0_14px_rgba(244,63,94,0.5)] border border-red-400">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-red-600 to-pink-600 text-white font-display font-black text-[11px] shadow-[0_0_16px_rgba(236,72,153,0.5)] border border-pink-400/50">
               <span>Clean Code</span>
               <DoodleHeart className="w-3.5 h-3.5 text-white" />
             </div>

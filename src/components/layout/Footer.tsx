@@ -42,7 +42,7 @@ export function Footer() {
         {/* Massive Call To Action: "LET'S MAKE SOMETHING DOPE!" with purple circled doodle (Exact Reference) */}
         <div className="mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 mb-3">
-            <Sparkles className="w-4 h-4 text-[#CCFF00]" />
+            <Sparkles className="w-4 h-4 text-pink-400" />
             <span className="font-mono text-xs uppercase tracking-widest text-purple-300 font-bold">
               GET IN TOUCH • READY FOR HIRE
             </span>
@@ -66,8 +66,8 @@ export function Footer() {
           
           {/* Email Pill with Copy Button */}
           <div className="md:col-span-5 flex items-center gap-3">
-            <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#111322] border border-white/15 hover:border-[#CCFF00]/60 transition-all shadow-md group">
-              <Mail className="w-4 h-4 text-[#CCFF00]" />
+            <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#111322] border border-white/15 hover:border-pink-500/60 transition-all shadow-md group">
+              <Mail className="w-4 h-4 text-pink-400" />
               <a
                 href={siteConfig.links.email}
                 className="text-xs sm:text-sm font-mono text-gray-200 hover:text-white transition-colors"
@@ -77,7 +77,7 @@ export function Footer() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="p-1 rounded-full bg-white/10 hover:bg-[#CCFF00] hover:text-[#0A0514] text-gray-300 transition-all ml-1"
+                className="p-1 rounded-full bg-white/10 hover:bg-pink-500 hover:text-white text-gray-300 transition-all ml-1"
                 title="Copy email to clipboard"
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
@@ -112,7 +112,7 @@ export function Footer() {
               href={siteConfig.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-[#111322] border border-white/15 hover:border-[#CCFF00] hover:bg-[#CCFF00] hover:text-[#0A0514] text-white flex items-center justify-center transition-all duration-200 shadow-sm"
+              className="w-10 h-10 rounded-full bg-[#111322] border border-white/15 hover:border-purple-400 hover:bg-purple-600 hover:text-white text-white flex items-center justify-center transition-all duration-200 shadow-sm"
               aria-label="GitHub"
             >
               <Github className="w-4 h-4" />
@@ -122,7 +122,7 @@ export function Footer() {
               href={siteConfig.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-[#111322] border border-white/15 hover:border-[#38BDF8] hover:bg-[#38BDF8] hover:text-[#0A0514] text-white flex items-center justify-center transition-all duration-200 shadow-sm"
+              className="w-10 h-10 rounded-full bg-[#111322] border border-white/15 hover:border-cyan-400 hover:bg-cyan-500 hover:text-white text-white flex items-center justify-center transition-all duration-200 shadow-sm"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-4 h-4" />
@@ -130,7 +130,7 @@ export function Footer() {
 
             <a
               href={siteConfig.links.email}
-              className="w-10 h-10 rounded-full bg-[#111322] border border-white/15 hover:border-[#FF90E8] hover:bg-[#FF90E8] hover:text-[#0A0514] text-white flex items-center justify-center transition-all duration-200 shadow-sm"
+              className="w-10 h-10 rounded-full bg-[#111322] border border-white/15 hover:border-pink-400 hover:bg-pink-500 hover:text-white text-white flex items-center justify-center transition-all duration-200 shadow-sm"
               aria-label="Email"
             >
               <Mail className="w-4 h-4" />

@@ -76,40 +76,42 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* 3. Subtitle Bar with Dots (Matches "2D Animator • Motion Designer • Video Editor") */}
+            {/* 3. Subtitle Bar with Dots */}
             <div className="flex flex-wrap items-center gap-2 mb-6 text-sm sm:text-base md:text-lg font-display font-bold text-gray-200">
-              <span className="text-[#CCFF00] font-black">Full-Stack Developer</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-300 font-black">
+                Full-Stack Developer
+              </span>
               <span className="text-purple-400 font-black">•</span>
-              <span>M.Sc. IT Scholar</span>
+              <span className="text-purple-200">M.Sc. IT Scholar</span>
               <span className="text-purple-400 font-black">•</span>
               <span className="text-cyan-300">Cloud &amp; Web Architect</span>
             </div>
 
-            {/* 4. Action Buttons (Matches Lime/Yellow Pill "Watch Showreel" + Dark Pill "View Projects ↗") */}
+            {/* 4. Action Buttons (Matches Cosmic Gradient Pill "Watch Showreel" + Dark Pill "View Projects ↗") */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8 w-full sm:w-auto">
-              {/* Button 1: Neon Lime/Yellow Pill Button */}
+              {/* Button 1: Glowing Cosmic Gradient Pill Button */}
               <a
                 href="#showreel"
-                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-full bg-[#CCFF00] text-[#0A0514] font-display font-black text-xs sm:text-sm tracking-wider uppercase shadow-[0_0_25px_rgba(204,255,0,0.4)] hover:shadow-[0_0_35px_rgba(204,255,0,0.7)] hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200"
+                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-full bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 hover:from-red-600 hover:via-pink-600 hover:to-purple-700 text-white font-display font-black text-xs sm:text-sm tracking-wider uppercase shadow-[0_0_25px_rgba(236,72,153,0.4)] hover:shadow-[0_0_35px_rgba(236,72,153,0.7)] hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 <Play className="w-4 h-4 fill-current ml-0.5" />
                 <span>Watch Showreel</span>
               </a>
 
-              {/* Button 2: Dark Pill Button with White Border and Diagonal Arrow ↗ */}
+              {/* Button 2: Dark Pill Button with Glowing Purple Border and Diagonal Arrow ↗ */}
               <a
                 href="#projects"
-                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full bg-[#111322]/80 hover:bg-[#1a1c30] text-white border-2 border-white/20 hover:border-[#CCFF00]/60 font-display font-bold text-xs sm:text-sm tracking-wider uppercase shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 backdrop-blur-md"
+                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full bg-[#111322]/90 hover:bg-[#1a1c30] text-white border-2 border-purple-500/30 hover:border-pink-500/60 font-display font-bold text-xs sm:text-sm tracking-wider uppercase shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 backdrop-blur-md"
               >
                 <span>View Projects</span>
-                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#CCFF00] transition-transform" />
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-pink-400 transition-transform" />
               </a>
 
               {/* Button 3: View Resume Modal */}
               <button
                 type="button"
                 onClick={() => setResumeModalOpen(true)}
-                className="inline-flex items-center justify-center gap-1.5 px-5 py-3.5 rounded-full bg-purple-950/60 hover:bg-purple-900/80 text-purple-200 hover:text-white border border-purple-500/40 text-xs font-display font-bold uppercase tracking-wider transition-all"
+                className="inline-flex items-center justify-center gap-1.5 px-5 py-3.5 rounded-full bg-purple-950/60 hover:bg-purple-900/80 text-purple-200 hover:text-white border border-purple-500/40 text-xs font-display font-bold uppercase tracking-wider shadow-sm hover:scale-105 transition-all"
               >
                 <FileText className="w-3.5 h-3.5 text-pink-400" />
                 <span>Resume</span>

@@ -85,10 +85,10 @@ export function ProjectsSection() {
             href={siteConfig.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 font-display font-black text-xs sm:text-sm text-[#FFD52E] hover:text-white uppercase tracking-wider transition-colors"
+            className="group inline-flex items-center gap-2 font-display font-black text-xs sm:text-sm text-pink-300 hover:text-white uppercase tracking-wider transition-colors"
           >
             <span>View All Projects</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-pink-400 group-hover:text-white" />
           </a>
         </div>
 
@@ -128,7 +128,7 @@ export function ProjectsSection() {
               <div className="p-4 sm:p-5 flex flex-col justify-between flex-1">
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-1">
-                    <h3 className="font-display font-black text-base sm:text-lg text-white group-hover:text-[#CCFF00] transition-colors tracking-wide">
+                    <h3 className="font-display font-black text-base sm:text-lg text-white group-hover:text-pink-400 transition-colors tracking-wide">
                       {item.title}
                     </h3>
 
@@ -138,7 +138,7 @@ export function ProjectsSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="p-1.5 rounded-full bg-white/5 hover:bg-[#CCFF00] hover:text-[#0A0514] text-gray-300 transition-all group-hover:rotate-45"
+                      className="p-1.5 rounded-full bg-white/5 hover:bg-gradient-to-r hover:from-red-500 hover:to-pink-500 hover:text-white text-gray-300 transition-all group-hover:rotate-45 shadow-sm"
                       aria-label={`Open ${item.title} on GitHub`}
                     >
                       <ArrowUpRight className="w-4 h-4" />

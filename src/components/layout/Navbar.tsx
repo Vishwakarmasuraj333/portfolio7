@@ -70,7 +70,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             
-            {/* Logo: "SURAJ." (Exact Reference Style: Bold font with colorful period) */}
+            {/* Logo: "SURAJ." (Cosmic Gradient dot) */}
             <Link
               href="#home"
               className="group flex items-center select-none focus:outline-none"
@@ -78,7 +78,7 @@ export function Navbar() {
             >
               <span className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight">
                 SURAJ
-                <span className="text-[#CCFF00]">.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 animate-pulse">.</span>
               </span>
             </Link>
 
@@ -97,13 +97,13 @@ export function Navbar() {
                     href={link.href}
                     className={`text-xs lg:text-sm font-display font-bold tracking-wider transition-all relative py-1 ${
                       isActive
-                        ? "text-[#CCFF00] font-black"
+                        ? "text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-300 font-black"
                         : "text-gray-300 hover:text-white"
                     }`}
                   >
                     {link.label}
                     {isActive && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#CCFF00] rounded-full shadow-[0_0_8px_#CCFF00]" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 rounded-full shadow-[0_0_10px_rgba(236,72,153,0.8)]" />
                     )}
                   </a>
                 );
@@ -143,7 +143,7 @@ export function Navbar() {
               {/* Drawer Header */}
               <div className="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
                 <span className="font-display font-black text-2xl text-white">
-                  SURAJ<span className="text-[#CCFF00]">.</span>
+                  SURAJ<span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-500 to-purple-500">.</span>
                 </span>
                 <button
                   type="button"
@@ -162,7 +162,7 @@ export function Navbar() {
                     <a
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-2.5 rounded-xl font-display font-bold text-base text-gray-200 hover:text-[#0A0514] hover:bg-[#CCFF00] transition-all"
+                      className="block px-4 py-2.5 rounded-xl font-display font-bold text-base text-gray-200 hover:text-white hover:bg-gradient-to-r hover:from-purple-900/50 hover:to-pink-900/50 hover:border-purple-500/30 transition-all"
                     >
                       {item.label}
                     </a>
@@ -179,7 +179,7 @@ export function Navbar() {
                   setMobileMenuOpen(false);
                   setResumeOpen(true);
                 }}
-                className="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-display font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(168,85,247,0.4)]"
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 hover:from-red-500 hover:via-pink-500 hover:to-purple-500 text-white font-display font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(236,72,153,0.4)]"
               >
                 View Verified Resume
               </button>
@@ -189,7 +189,7 @@ export function Navbar() {
                 download="Suraj_Vishwakarma_Resume.pdf"
                 className="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white font-mono text-xs flex items-center justify-center gap-1.5 transition-all"
               >
-                <Download className="w-3.5 h-3.5 text-[#CCFF00]" />
+                <Download className="w-3.5 h-3.5 text-pink-400" />
                 <span>Download Resume PDF</span>
               </a>
             </div>
