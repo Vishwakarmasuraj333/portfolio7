@@ -1,0 +1,196 @@
+{
+  "personal": {
+    "name": "Suraj Vishwakarma",
+    "shortName": "Suraj",
+    "brand": "SURAj VISHWAKARMA",
+    "wordmark": "SURAj DEV",
+    "title": "Full-Stack Developer & M.Sc. IT Scholar",
+    "tagline": "Building digital experiences that work.",
+    "shortBio": "Full-Stack Developer passionate about engineering high-performance React & Next.js platforms, resilient Python / Node.js microservices, and practical AI integrations.",
+    "extendedBio": "I'm Suraj Vishwakarma, a dedicated Full-Stack Developer with a deep commitment to engineering high-performance web applications, scalable RESTful APIs, and responsive digital products. With an academic background in Information Technology from Abhinav College (University of Mumbai) where I achieved a 9.04 CGPA distinction, I combine frontend craftsmanship with solid backend architectural fundamentals.",
+    "location": "Bhayandar, Mumbai, Maharashtra, India",
+    "college": "Abhinav College, Bhayandar (University of Mumbai)",
+    "availability": "Available for Full-time Roles & Projects"
+  },
+  "contact": {
+    "email": "itxsurajofficial@gmail.com",
+    "phone": "+91 93709 44696",
+    "github": "https://github.com/Vishwakarmasuraj333",
+    "githubUsername": "Vishwakarmasuraj333",
+    "linkedin": "https://www.linkedin.com/in/suraj-vishwakarma-2ab64436a/",
+    "portfolioRepository": "https://github.com/Vishwakarmasuraj333/portfolio7",
+    "liveUrl": "https://suraj-portfolio5.vercel.app"
+  },
+  "typewriterTitles": [
+    "Full-Stack Developer",
+    "React & Next.js Developer",
+    "Backend Developer",
+    "AI/ML Enthusiast"
+  ],
+  "education": [
+    {
+      "degree": "Master of Science in Information Technology (M.Sc. IT)",
+      "institution": "Abhinav College, University of Mumbai",
+      "location": "Bhayandar, Mumbai, Maharashtra, India",
+      "period": "2025 — Present",
+      "status": "Pursuing",
+      "cgpa": "Currently Enrolled",
+      "highlights": [
+        "Advanced research in distributed systems & microservices",
+        "Specializing in modern full-stack web and cloud architectures",
+        "Abhinav College, Bhayandar postgraduate scholar"
+      ]
+    },
+    {
+      "degree": "Bachelor of Science in Information Technology (B.Sc. IT)",
+      "institution": "Abhinav College, University of Mumbai",
+      "location": "Bhayandar, Mumbai, Maharashtra, India",
+      "period": "2022 — 2025",
+      "status": "Completed",
+      "cgpa": "CGPA: 9.04 (A Grade)",
+      "highlights": [
+        "Graduated with top academic distinction scoring an impressive 9.04 CGPA (A Grade)",
+        "Specialized in modern full-stack web technologies, ReactJS, and scalable applications",
+        "Built real-world deployed web applications with Git/GitHub version control",
+        "Studied at Abhinav College, Bhayandar (affiliated with University of Mumbai)"
+      ]
+    },
+    {
+      "degree": "Higher Secondary Certificate (12th), IT–Maths",
+      "institution": "Maharashtra State Board",
+      "period": "2021 — 2022",
+      "status": "Completed",
+      "cgpa": "Percentage: 55%",
+      "highlights": [
+        "Focused on Information Technology (IT) and Mathematics",
+        "Developed foundational programming and mathematical reasoning skills"
+      ]
+    },
+    {
+      "degree": "Secondary School Certificate (10th)",
+      "institution": "Maharashtra State Board",
+      "period": "2019 — 2020",
+      "status": "Completed",
+      "cgpa": "Percentage: 66%",
+      "highlights": [
+        "Strong academic foundation across sciences and mathematics"
+      ]
+    }
+  ],
+  "skills": {
+    "frontend": [
+      "ReactJS",
+      "Next.js 14",
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Responsive Design",
+      "Web Accessibility (WCAG)"
+    ],
+    "backend": [
+      "Node.js",
+      "Express.js",
+      "Python",
+      "FastAPI",
+      "RESTful APIs",
+      "Authentication & JWT",
+      "Zod Validation"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Data Modeling",
+      "CRUD Operations"
+    ],
+    "tools": [
+      "Git & GitHub",
+      "VS Code",
+      "Postman",
+      "Chrome DevTools",
+      "Lighthouse Auditing",
+      "AI Debugging Tools"
+    ]
+  },
+  "certifications": [
+    {
+      "title": "Front End Development Libraries",
+      "issuer": "FreeCodeCamp",
+      "credentialId": "FCC-FEDL-REACT-REDUX",
+      "skills": ["ReactJS", "Redux", "Bootstrap", "SASS"]
+    },
+    {
+      "title": "Responsive Web Design",
+      "issuer": "FreeCodeCamp",
+      "credentialId": "FCC-RWD-HTML-CSS",
+      "skills": ["HTML5", "CSS3", "Flexbox", "CSS Grid", "Accessibility"]
+    },
+    {
+      "title": "JavaScript Algorithms and Data Structures",
+      "issuer": "FreeCodeCamp",
+      "credentialId": "FCC-JS-ALGO-DS",
+      "skills": ["JavaScript (ES6+)", "Algorithms", "Data Structures", "OOP"]
+    },
+    {
+      "title": "Web Development for Beginners",
+      "issuer": "Simplilearn",
+      "credentialId": "SL-WDB-HTML-CSS-JS",
+      "skills": ["HTML5", "CSS3", "JavaScript", "DOM Architecture"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "intellitwin-ai",
+      "title": "IntelliTwin AI",
+      "subtitle": "Cybersecurity Anomaly Detection & ML Platform",
+      "category": "AI / ML & Cybersecurity",
+      "tagline": "Proactive cybersecurity anomaly-detection platform with explainable ML predictions.",
+      "technologies": ["Python", "FastAPI", "Next.js", "PostgreSQL", "XGBoost", "SHAP", "Tailwind CSS"],
+      "metric": "99.2% Model Accuracy",
+      "repository": "https://github.com/Vishwakarmasuraj333/IntelliTwin-AI"
+    },
+    {
+      "id": "pulsesocial",
+      "title": "PulseSocial",
+      "subtitle": "Social Media Workflow & Multi-Channel Publishing Hub",
+      "category": "Social Media Management",
+      "tagline": "Centralized social media content publishing, queue scheduling, and platform connectivity.",
+      "technologies": ["Next.js", "React", "REST APIs", "Tailwind CSS", "TypeScript", "Node.js"],
+      "metric": "Multi-Channel Publishing",
+      "repository": "https://github.com/Vishwakarmasuraj333"
+    },
+    {
+      "id": "nexora-social",
+      "title": "Nexora Social",
+      "subtitle": "Full-Stack Social Workflow & Content Platform",
+      "category": "Full-Stack Web Application",
+      "tagline": "Social media management product concept emphasizing a polished dashboard and extensible architecture.",
+      "technologies": ["Next.js", "React", "Node.js", "Express.js", "Tailwind CSS", "TypeScript", "REST APIs"],
+      "metric": "100% Strict TypeScript",
+      "repository": "https://github.com/Vishwakarmasuraj333/-Nexora-Social"
+    },
+    {
+      "id": "personal-portfolio",
+      "title": "Personal Portfolio",
+      "subtitle": "Responsive Hand-Crafted Developer Showcase",
+      "category": "Web Development",
+      "tagline": "Responsive personal portfolio showcasing development skills, selected work, learning, and contact.",
+      "technologies": ["Next.js 14", "React", "TypeScript", "Tailwind CSS", "Three.js", "Zod"],
+      "metric": "100% Responsive & Tested",
+      "repository": "https://github.com/Vishwakarmasuraj333/portfolio7"
+    },
+    {
+      "id": "se-ranking",
+      "title": "SE Ranking Research Studio",
+      "subtitle": "Keyword Intelligence & SERP Analytics Hub",
+      "category": "Developer Tools",
+      "tagline": "Real-time search engine rank monitoring, keyword metrics, and competitor insights.",
+      "technologies": ["React", "Next.js", "Tailwind CSS", "REST APIs", "Node.js", "TypeScript"],
+      "metric": "Real-time SERP Data",
+      "repository": "https://github.com/MamtaYdvTech1/SE-Ranking"
+    }
+  ]
+}
