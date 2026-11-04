@@ -1,151 +1,163 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import {
-  DoodleSmiley,
-  DoodleHeart,
-  DoodleLightning,
+  DoodleDopeCircle,
+  DoodleBlueMonster,
+  DoodleSmileySticker,
+  DoodleLightningBolt,
+  DoodleStar,
 } from "../ui/Doodles";
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Copy,
+  Check,
+  ArrowUpRight,
+  Sparkles,
+} from "lucide-react";
 
 export function Footer() {
+  const [copied, setCopied] = useState(false);
   const currentYear = new Date().getFullYear();
 
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(siteConfig.links.rawEmail);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
   return (
-    <footer className="relative bg-[#07030C]/95 text-white border-t border-purple-500/25 overflow-hidden pt-14 sm:pt-16 pb-12 select-none">
-      {/* Ambient Red/Purple/Pink Nebula Glows inside footer */}
-      <div className="absolute top-0 left-1/4 w-[350px] h-[200px] bg-purple-600/15 blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[300px] h-[180px] bg-pink-600/15 blur-[100px] pointer-events-none" />
+    <footer id="contact" className="relative bg-[#080911] text-white pt-16 sm:pt-24 pb-14 overflow-hidden select-none border-t-2 border-white/10">
+      {/* Background Subtle Ambient Glow */}
+      <div className="absolute top-0 left-1/3 w-[500px] h-[300px] bg-purple-600/10 blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-10 sm:pb-12 border-b border-purple-500/20 items-start">
-          {/* Left Column: Brand with Smiley, Bio & Credit */}
-          <div className="lg:col-span-5 flex flex-col items-start space-y-4">
-            <Link
-              href="#home"
-              className="flex items-center gap-2 group focus:outline-none"
-              aria-label="Suraj Vishwakarma - Back to Top"
+        
+        {/* Massive Call To Action: "LET'S MAKE SOMETHING DOPE!" with purple circled doodle (Exact Reference) */}
+        <div className="mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <Sparkles className="w-4 h-4 text-[#CCFF00]" />
+            <span className="font-mono text-xs uppercase tracking-widest text-purple-300 font-bold">
+              GET IN TOUCH • READY FOR HIRE
+            </span>
+          </div>
+
+          <h2 className="font-display font-black text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight uppercase leading-[1.05]">
+            LET&apos;S MAKE <br />
+            SOMETHING{" "}
+            <span className="relative inline-block text-white">
+              <span>DOPE!</span>
+              {/* Hand-drawn Purple Oval Looping around DOPE! (Exact match!) */}
+              <div className="absolute -inset-x-4 -inset-y-2 pointer-events-none flex items-center justify-center">
+                <DoodleDopeCircle className="w-[125%] h-[150%] text-purple-500 drop-shadow-[0_0_15px_rgba(168,85,247,0.7)]" />
+              </div>
+            </span>
+          </h2>
+        </div>
+
+        {/* Contact Strip matching reference layout: Email on left, Location in middle, Socials on right */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pb-12 border-b border-white/10">
+          
+          {/* Email Pill with Copy Button */}
+          <div className="md:col-span-5 flex items-center gap-3">
+            <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#111322] border border-white/15 hover:border-[#CCFF00]/60 transition-all shadow-md group">
+              <Mail className="w-4 h-4 text-[#CCFF00]" />
+              <a
+                href={siteConfig.links.email}
+                className="text-xs sm:text-sm font-mono text-gray-200 hover:text-white transition-colors"
+              >
+                {siteConfig.links.rawEmail}
+              </a>
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="p-1 rounded-full bg-white/10 hover:bg-[#CCFF00] hover:text-[#0A0514] text-gray-300 transition-all ml-1"
+                title="Copy email to clipboard"
+              >
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+              </button>
+            </div>
+
+            {copied && (
+              <span className="text-xs font-mono text-emerald-400 font-bold animate-fadeIn">
+                Copied!
+              </span>
+            )}
+          </div>
+
+          {/* Location & Phone */}
+          <div className="md:col-span-4 flex flex-col sm:flex-row sm:items-center gap-3 text-xs sm:text-sm font-mono text-gray-300">
+            <div className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-purple-400 shrink-0" />
+              <span>Bhayandar, Mumbai, India</span>
+            </div>
+            <span className="hidden sm:inline text-gray-600">•</span>
+            <div className="flex items-center gap-2">
+              <Phone className="w-4 h-4 text-pink-400 shrink-0" />
+              <a href="tel:+919370944696" className="hover:text-white transition-colors">
+                +91 93709 44696
+              </a>
+            </div>
+          </div>
+
+          {/* Social Icons Row */}
+          <div className="md:col-span-3 flex items-center gap-3 justify-start md:justify-end">
+            <a
+              href={siteConfig.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-[#111322] border border-white/15 hover:border-[#CCFF00] hover:bg-[#CCFF00] hover:text-[#0A0514] text-white flex items-center justify-center transition-all duration-200 shadow-sm"
+              aria-label="GitHub"
             >
-              <div className="flex flex-col text-left leading-none">
-                <div className="flex items-center gap-2">
-                  <span className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight group-hover:text-pink-400 transition-colors">
-                    SURAj
-                  </span>
-                  <DoodleSmiley className="w-6 h-6 text-pink-400 group-hover:rotate-45 group-hover:scale-125 transition-transform duration-200" />
-                </div>
-                <span className="font-display font-extrabold text-xs sm:text-sm tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-500 to-purple-400">
-                  VISHWAKARMA
-                </span>
-              </div>
-            </Link>
+              <Github className="w-4 h-4" />
+            </a>
 
-            <p className="text-purple-200/75 text-xs sm:text-sm font-medium leading-relaxed max-w-sm">
-              Full-Stack Developer passionate about engineering responsive web applications, modern React &amp; Next.js platforms, Python microservices, and AI integrations.
-            </p>
+            <a
+              href={siteConfig.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-[#111322] border border-white/15 hover:border-[#38BDF8] hover:bg-[#38BDF8] hover:text-[#0A0514] text-white flex items-center justify-center transition-all duration-200 shadow-sm"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
 
-            <div className="pt-2">
-              <span className="font-mono text-xs text-pink-400 bg-purple-950/50 px-3.5 py-1 rounded-full border border-purple-500/30 inline-block shadow-[0_0_12px_rgba(168,85,247,0.2)]">
-                {siteConfig.credit}
-              </span>
-            </div>
+            <a
+              href={siteConfig.links.email}
+              className="w-10 h-10 rounded-full bg-[#111322] border border-white/15 hover:border-[#FF90E8] hover:bg-[#FF90E8] hover:text-[#0A0514] text-white flex items-center justify-center transition-all duration-200 shadow-sm"
+              aria-label="Email"
+            >
+              <Mail className="w-4 h-4" />
+            </a>
           </div>
 
-          {/* Center Column: Quick Navigation Links */}
-          <div className="lg:col-span-3">
-            <h4 className="font-display font-black text-xs uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-400 mb-4">
-              NAVIGATE
-            </h4>
-            <ul className="space-y-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-purple-200/80">
-              {siteConfig.navLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="hover:text-pink-400 hover:translate-x-1.5 transition-all inline-block py-0.5"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+        </div>
+
+        {/* Bottom Bar: Copyright & Cute Blue Waving Mascot (Exact Reference!) */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-400 relative">
+          <div className="flex items-center gap-2">
+            <span className="font-display font-black text-white text-sm">SURAJ.</span>
+            <span>© {currentYear} Suraj Vishwakarma. All Rights Reserved.</span>
           </div>
 
-          {/* Right Column: Connect Links & Signature Sticker */}
-          <div className="lg:col-span-4 flex flex-col justify-between h-full space-y-6">
-            <div>
-              <h4 className="font-display font-black text-xs uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-400 mb-4">
-                LET&apos;S CONNECT
-              </h4>
+          <div className="flex items-center gap-4">
+            <a href="#home" className="hover:text-white transition-colors">
+              Back to Top ↑
+            </a>
+          </div>
 
-              <div className="space-y-2.5 text-xs sm:text-sm font-medium text-purple-200/80">
-                <div className="flex items-center gap-2 group/item">
-                  <Mail className="w-4 h-4 text-pink-400 group-hover/item:scale-125 transition-transform" />
-                  <a
-                    href={siteConfig.links.email}
-                    className="hover:underline text-white font-semibold"
-                  >
-                    {siteConfig.links.rawEmail}
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-2 group/item">
-                  <Github className="w-4 h-4 text-purple-400 group-hover/item:scale-125 transition-transform" />
-                  <a
-                    href={siteConfig.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline"
-                  >
-                    github.com/{siteConfig.links.githubUsername}
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-2 group/item">
-                  <Linkedin className="w-4 h-4 text-pink-400 group-hover/item:scale-125 transition-transform" />
-                  <a
-                    href={siteConfig.links.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline"
-                  >
-                    linkedin.com/in/{siteConfig.links.linkedinSlug}
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-2 text-purple-300/70">
-                  <MapPin className="w-4 h-4 text-red-400" />
-                  <span>Bhayandar / Mumbai, Maharashtra, India</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Glowing Signature Sticker */}
-            <div className="self-start sm:self-auto inline-flex items-center gap-2.5 bg-space-850/80 text-white px-4 py-2.5 rounded-2xl border border-pink-500/40 shadow-[0_0_20px_rgba(236,72,153,0.3)] rotate-[-2deg] hover:rotate-0 hover:scale-105 hover:shadow-[0_0_30px_rgba(236,72,153,0.5)] transition-all duration-200 cursor-pointer backdrop-blur-md">
-              <span className="font-display font-black text-xs sm:text-sm uppercase tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-pink-400">
-                THANKS FOR STOPPING BY!
-              </span>
-              <DoodleHeart className="w-4 h-4 text-pink-500 animate-pulse" />
-              <DoodleLightning className="w-3 h-5 text-purple-400" />
-            </div>
+          {/* Cute Blue Doodle Mascot Waving Peace Sign ✌ (Bottom-Right Signature!) */}
+          <div className="absolute -bottom-8 right-2 sm:right-6 pointer-events-none hidden sm:block">
+            <DoodleBlueMonster className="w-24 h-28 drop-shadow-[0_10px_25px_rgba(56,189,248,0.4)]" />
           </div>
         </div>
 
-        {/* Bottom Copyright & Disclaimer */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-purple-300/60 gap-3">
-          <p>
-            &copy; {currentYear} Suraj Vishwakarma. All rights reserved.
-          </p>
-          <div className="flex items-center gap-3 text-xs font-medium">
-            <span>Next.js 14 App Router</span>
-            <span>•</span>
-            <span>Three.js 3D</span>
-            <span>•</span>
-            <span>TypeScript</span>
-            <span>•</span>
-            <span>Tailwind CSS</span>
-          </div>
-        </div>
       </div>
     </footer>
   );

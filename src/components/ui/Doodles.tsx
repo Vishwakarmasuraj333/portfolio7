@@ -351,3 +351,360 @@ export function DoodlePaperAirplane({ className = "w-10 h-10 text-white", ...pro
     </svg>
   );
 }
+
+// 18. "Hey, I'm" Hand-Drawn Scribble Arrow (Signature reference element)
+export function DoodleHeyArrow({ className = "w-28 h-16 text-white", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 120 70" fill="none" className={`select-none ${className}`} {...props}>
+      {/* Handwritten "Hey," */}
+      <text
+        x="6"
+        y="22"
+        fill="currentColor"
+        fontFamily="var(--font-handwriting), Caveat, cursive"
+        fontSize="24"
+        fontWeight="bold"
+        className="select-none"
+      >
+        Hey,
+      </text>
+      {/* Hand-drawn arrow curving down-right to "I'm" */}
+      <path
+        d="M28 26 C28 42, 45 48, 62 48"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+        fill="none"
+      />
+      {/* Arrow head */}
+      <path
+        d="M54 41 L64 48 L54 55"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      {/* Handwritten "I'm" */}
+      <text
+        x="72"
+        y="54"
+        fill="currentColor"
+        fontFamily="var(--font-handwriting), Caveat, cursive"
+        fontSize="32"
+        fontWeight="bold"
+        className="select-none"
+      >
+        I&apos;m
+      </text>
+    </svg>
+  );
+}
+
+// 19. Yellow Doodle Crown (Right above name)
+export function DoodleCrownYellow({ className = "w-12 h-9", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 50 36" fill="none" className={`select-none ${className}`} {...props}>
+      <path
+        d="M5 30 L9 10 L20 20 L25 5 L30 20 L41 10 L45 30 Z"
+        fill="#FFD52E"
+        stroke="#151515"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="9" cy="8" r="2.5" fill="#FFD52E" stroke="#151515" strokeWidth="1.5" />
+      <circle cx="25" cy="4" r="2.5" fill="#FFD52E" stroke="#151515" strokeWidth="1.5" />
+      <circle cx="41" cy="8" r="2.5" fill="#FFD52E" stroke="#151515" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
+// 20. Cyan / Electric Speech Bubble ("LET'S BUILD SOMETHING AWESOME!")
+export function DoodleSpeechBubble({
+  text = "LET'S BUILD SOMETHING AWESOME!",
+  className = "w-52 h-20",
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & { text?: string }) {
+  return (
+    <div
+      className={`relative inline-flex items-center justify-center px-4 py-2.5 rounded-[22px] bg-[#38BDF8] text-[#0A0514] font-display font-black text-xs sm:text-sm tracking-wide shadow-[0_4px_15px_rgba(56,189,248,0.5)] border-2 border-[#0A0514] rotate-[-4deg] hover:rotate-0 hover:scale-105 transition-all duration-200 select-none ${className}`}
+      {...props}
+    >
+      <span>{text}</span>
+      {/* Speech pointer tail */}
+      <div className="absolute -bottom-2.5 left-6 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[12px] border-t-[#38BDF8]" />
+    </div>
+  );
+}
+
+// 21. Lime / Yellow Sticker Smiley with doodle aura
+export function DoodleSmileySticker({ className = "w-12 h-12", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 60 60" fill="none" className={`select-none ${className}`} {...props}>
+      {/* Circular green/lime sticker background */}
+      <circle cx="30" cy="30" r="25" fill="#CCFF00" stroke="#151515" strokeWidth="3" />
+      {/* Eye left */}
+      <ellipse cx="22" cy="24" rx="2.5" ry="3.5" fill="#151515" />
+      {/* Eye right */}
+      <ellipse cx="38" cy="24" rx="2.5" ry="3.5" fill="#151515" />
+      {/* Big joyful smile */}
+      <path
+        d="M20 34 Q30 46 40 34"
+        stroke="#151515"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        fill="none"
+      />
+      {/* Underline scribble */}
+      <path
+        d="M16 54 L44 52"
+        stroke="#CCFF00"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+// 22. Sharp Neon Yellow Lightning Bolt
+export function DoodleLightningBolt({ className = "w-8 h-14", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 40 60" fill="none" className={`select-none ${className}`} {...props}>
+      <path
+        d="M24 2 L4 34 L18 34 L10 58 L36 24 L22 24 Z"
+        fill="#FFD52E"
+        stroke="#0A0514"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+// 23. Cyan Fluid Splash / Wave on the Left Edge
+export function DoodleFluidWave({ className = "w-40 h-40", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 200 200" fill="none" className={`select-none ${className}`} {...props}>
+      <path
+        d="M20 20 C60 0, 110 30, 130 80 C150 130, 120 180, 80 190 C40 200, 0 170, 0 120 C0 70, -20 40, 20 20 Z"
+        fill="#0284C7"
+        opacity="0.85"
+      />
+      <circle cx="150" cy="50" r="10" fill="#38BDF8" opacity="0.9" />
+      <circle cx="170" cy="85" r="5" fill="#38BDF8" opacity="0.75" />
+      <circle cx="100" cy="185" r="7" fill="#0284C7" opacity="0.6" />
+    </svg>
+  );
+}
+
+// 24. Cute Pink / Orange Rabbit Head Doodle (from Showreel Card)
+export function DoodleRabbitHead({ className = "w-10 h-10 text-pink-400", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 60 60" fill="none" className={`select-none ${className}`} {...props}>
+      {/* Left ear */}
+      <path
+        d="M22 26 C20 12, 14 6, 20 4 C26 2, 28 14, 28 26"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Right ear */}
+      <path
+        d="M38 26 C40 12, 46 6, 40 4 C34 2, 32 14, 32 26"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* Head oval */}
+      <circle cx="30" cy="40" r="16" stroke="currentColor" strokeWidth="2.5" fill="none" />
+      {/* Eyes */}
+      <circle cx="25" cy="38" r="2" fill="currentColor" />
+      <circle cx="35" cy="38" r="2" fill="currentColor" />
+      {/* Nose & mouth */}
+      <path d="M29 43 L31 43" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M27 46 Q30 49 33 46" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+// 25. Pink Sketch Hatch Lines (///)
+export function DoodlePinkHatch({ className = "w-12 h-8 text-pink-400", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 60 40" fill="none" className={`select-none ${className}`} {...props}>
+      <line x1="8" y1="32" x2="24" y2="8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <line x1="22" y1="32" x2="38" y2="8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <line x1="36" y1="32" x2="52" y2="8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+// 26. Purple Wavy Squiggle (~)
+export function DoodlePurpleSquiggle({ className = "w-12 h-6 text-purple-400", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 60 30" fill="none" className={`select-none ${className}`} {...props}>
+      <path
+        d="M4 16 C12 6, 20 26, 30 16 C40 6, 48 26, 56 16"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinecap="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+// 27. Green Lightning Squiggle (Bottom-left of Projects)
+export function DoodleGreenSquiggle({ className = "w-10 h-14 text-[#CCFF00]", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 50 60" fill="none" className={`select-none ${className}`} {...props}>
+      <path
+        d="M10 10 L25 22 L16 32 L35 44 L24 55"
+        stroke="currentColor"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+// 28. Looped Purple Ribbon Squiggle (Right side of Skills)
+export function DoodlePurpleRibbon({ className = "w-16 h-16 text-purple-400", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 80 80" fill="none" className={`select-none ${className}`} {...props}>
+      <path
+        d="M10 60 C30 75, 60 65, 55 40 C50 15, 20 20, 30 45 C40 70, 70 55, 75 35"
+        stroke="currentColor"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+// 29. Purple Brush Strokes (Bottom of About Me)
+export function DoodlePurpleBrush({ className = "w-20 h-10 text-purple-400", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 100 50" fill="none" className={`select-none ${className}`} {...props}>
+      <path
+        d="M10 20 C35 15, 65 35, 90 22"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M20 34 C45 28, 70 45, 85 36"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+        opacity="0.8"
+      />
+    </svg>
+  );
+}
+
+// 30. Purple Dope Circle Loops (Circling "DOPE!" or "AWESOME!")
+export function DoodleDopeCircle({ className = "w-36 h-20 text-purple-400", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 140 70" fill="none" className={`select-none ${className}`} {...props}>
+      <ellipse
+        cx="70"
+        cy="35"
+        rx="64"
+        ry="28"
+        stroke="currentColor"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        strokeDasharray="400"
+        transform="rotate(-4 70 35)"
+      />
+      <ellipse
+        cx="72"
+        cy="36"
+        rx="60"
+        ry="25"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeDasharray="380"
+        transform="rotate(-1 72 36)"
+        opacity="0.75"
+      />
+    </svg>
+  );
+}
+
+// 31. Cute Blue Peace Monster Waving Mascot (Signature footer character from reference)
+export function DoodleBlueMonster({ className = "w-24 h-28", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 100 120" fill="none" className={`select-none ${className}`} {...props}>
+      {/* Mascot Body */}
+      <path
+        d="M20 115 C15 70, 20 45, 50 45 C80 45, 85 70, 80 115 Z"
+        fill="#38BDF8"
+        stroke="#0A0514"
+        strokeWidth="3"
+      />
+      {/* Big Eyes */}
+      <ellipse cx="40" cy="68" rx="6" ry="8" fill="white" stroke="#0A0514" strokeWidth="2.5" />
+      <circle cx="42" cy="70" r="3.5" fill="#0A0514" />
+      <ellipse cx="60" cy="68" rx="6" ry="8" fill="white" stroke="#0A0514" strokeWidth="2.5" />
+      <circle cx="62" cy="70" r="3.5" fill="#0A0514" />
+      {/* Big Happy Open Mouth with Tongue */}
+      <path
+        d="M40 85 Q50 102 60 85 Z"
+        fill="#0A0514"
+        stroke="#0A0514"
+        strokeWidth="2"
+      />
+      <path
+        d="M46 92 Q50 97 54 92"
+        fill="#F43F5E"
+      />
+      {/* Waving Arm on Right making Peace / Victory Sign (V) */}
+      <path
+        d="M78 70 C88 50, 92 35, 92 25"
+        stroke="#38BDF8"
+        strokeWidth="10"
+        strokeLinecap="round"
+      />
+      <path
+        d="M78 70 C88 50, 92 35, 92 25"
+        stroke="#0A0514"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        fill="none"
+      />
+      {/* Two peace fingers */}
+      <line x1="90" y1="28" x2="84" y2="10" stroke="#38BDF8" strokeWidth="7" strokeLinecap="round" />
+      <line x1="90" y1="28" x2="84" y2="10" stroke="#0A0514" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="93" y1="28" x2="98" y2="12" stroke="#38BDF8" strokeWidth="7" strokeLinecap="round" />
+      <line x1="93" y1="28" x2="98" y2="12" stroke="#0A0514" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Sparkles near peace sign */}
+      <path d="M72 15 L74 22 L79 24 L74 26 L72 33 L70 26 L65 24 L70 22 Z" fill="#FFD52E" />
+    </svg>
+  );
+}
+
+// 32. Clapperboard / Code Terminal Sticker
+export function DoodleClapperboard({ className = "w-14 h-14", ...props }: DoodleProps) {
+  return (
+    <svg viewBox="0 0 60 60" fill="none" className={`select-none ${className}`} {...props}>
+      <rect x="8" y="22" width="44" height="30" rx="4" fill="#1E1E2E" stroke="#151515" strokeWidth="2.5" />
+      {/* Top hinge bar */}
+      <rect x="8" y="10" width="44" height="12" rx="2" fill="#151515" />
+      {/* Diagonal stripes on hinge */}
+      <line x1="16" y1="10" x2="22" y2="22" stroke="white" strokeWidth="2.5" />
+      <line x1="26" y1="10" x2="32" y2="22" stroke="white" strokeWidth="2.5" />
+      <line x1="36" y1="10" x2="42" y2="22" stroke="white" strokeWidth="2.5" />
+      {/* Code play icon inside */}
+      <polygon points="26,30 38,37 26,44" fill="white" />
+    </svg>
+  );
+}

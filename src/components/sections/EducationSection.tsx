@@ -149,6 +149,65 @@ export function EducationSection() {
             </div>
           ))}
         </div>
+
+        {/* Verified Certifications Section */}
+        <div className="mt-14 pt-10 border-t border-white/10">
+          <div className="flex items-center gap-2 mb-6 justify-center">
+            <Award className="w-5 h-5 text-[#CCFF00]" />
+            <h3 className="font-display font-black text-xl sm:text-2xl text-white uppercase tracking-wide">
+              VERIFIED CERTIFICATIONS
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                title: "Front End Development Libraries",
+                issuer: "freeCodeCamp",
+                id: "FCC-FEDL-REACT-REDUX",
+                color: "#06B6D4",
+              },
+              {
+                title: "Responsive Web Design",
+                issuer: "freeCodeCamp",
+                id: "FCC-RWD-HTML-CSS",
+                color: "#CCFF00",
+              },
+              {
+                title: "JavaScript Algorithms & DS",
+                issuer: "freeCodeCamp",
+                id: "FCC-JS-ALGO-DS",
+                color: "#FFD52E",
+              },
+              {
+                title: "Web Development for Beginners",
+                issuer: "Simplilearn",
+                id: "SL-WDB-HTML-CSS-JS",
+                color: "#FF90E8",
+              },
+            ].map((cert) => (
+              <div
+                key={cert.id}
+                className="p-4 rounded-2xl bg-[#111322] border border-white/10 hover:border-purple-500/60 transition-all hover:-translate-y-1 text-left flex flex-col justify-between"
+              >
+                <div>
+                  <span className="text-[10px] font-mono font-bold text-purple-300 uppercase tracking-wider block mb-1">
+                    {cert.issuer}
+                  </span>
+                  <h4 className="font-display font-bold text-sm text-white leading-snug mb-2">
+                    {cert.title}
+                  </h4>
+                </div>
+                <div className="pt-2 border-t border-white/5 flex items-center justify-between">
+                  <span className="text-[10px] font-mono text-gray-400">
+                    ID: {cert.id}
+                  </span>
+                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: cert.color }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

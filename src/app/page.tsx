@@ -1,8 +1,10 @@
 import React from "react";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { ShowreelCard } from "@/components/ui/ShowreelCard";
+import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { SkillsSection } from "@/components/sections/SkillsSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { ApproachSection } from "@/components/sections/ApproachSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { EducationSection } from "@/components/sections/EducationSection";
@@ -11,33 +13,41 @@ import { ContactSection } from "@/components/sections/ContactSection";
 
 export default function HomePage() {
   return (
-    <>
-      {/* 1. Memorable Hero Section with Bold Typography, Doodles & Developer Composition */}
+    <main className="min-h-screen bg-[#080911] text-white overflow-hidden relative">
+      {/* 1. Hero Section: "Hey, I'm SURAJ", crown, cyan speech bubble, stickers, waving dev */}
       <HeroSection />
 
-      {/* 2. Introduction / About Me Section in Large Royal-Blue Rounded Panel */}
-      <AboutSection />
+      {/* 2. Flagship Showreel Card: "☆ SHOWREEL", description, 16:9 preview with big play button, rabbit doodle */}
+      <section id="showreel">
+        <ShowreelCard />
+      </section>
 
-      {/* 3. Skills and Services: "WHAT I CAN BUILD" with 4 Distinctive Colorful Cards */}
-      <ServicesSection />
-
-      {/* 4. Featured Projects: "SELECTED DIGITAL WORK" Gallery & Interactive Modals */}
+      {/* 3. Featured Projects: "FEATURED PROJECTS ~" with 4 responsive cards & arrow links */}
       <ProjectsSection />
 
-      {/* 5. "HOW I APPROACH DEVELOPMENT" Principles (Honest standards based on reference) */}
+      {/* 4. Skills App Tiles: "SKILLS" with squiggle underline & squircle app icons */}
+      <SkillsSection />
+
+      {/* 5. Split Section: Neon Lime "FOCUS DISCIPLINE CONSISTENCY" + Dark "ABOUT ME" */}
+      <AboutSection />
+
+      {/* 6. What I Can Build (Services & Core Capabilities) */}
+      <ServicesSection />
+
+      {/* 7. Engineering Standards & Approach Principles */}
       <ApproachSection />
 
-      {/* 6. Development Process: "FROM IDEA TO DEPLOYMENT" (5 connected steps) */}
+      {/* 8. 5-Step Process (Discover, Plan, Build, Test, Deploy) */}
       <ProcessSection />
 
-      {/* 7. Education & Learning: "ALWAYS BUILDING. ALWAYS LEARNING." (Abhinav College & Simplilearn) */}
+      {/* 9. Education & Verified Certifications: Abhinav College 9.04 CGPA Distinction & freeCodeCamp */}
       <EducationSection />
 
-      {/* 8. Yellow Call-To-Action Banner with Blue Starburst & Retro Red Phone Sticker */}
+      {/* 10. Call-To-Action Banner */}
       <ContactCtaBanner />
 
-      {/* 9. Interactive Contact Section with Zod Validation & Anti-Spam Protection */}
+      {/* 11. Interactive Contact Section */}
       <ContactSection />
-    </>
+    </main>
   );
 }

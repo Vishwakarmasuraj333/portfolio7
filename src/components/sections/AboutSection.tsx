@@ -1,153 +1,175 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
+import { ResumeModal } from "../ui/ResumeModal";
 import {
-  DoodleHeart,
-  DoodleArrowCurved,
+  DoodleCrownYellow,
+  DoodlePurpleBrush,
   DoodleStar,
 } from "../ui/Doodles";
-import {
-  Code2,
-  Terminal,
-  Cpu,
-  Layers,
-  Sparkles,
-  ArrowRight,
-  GraduationCap,
-  Award,
-  CheckCircle2,
-} from "lucide-react";
+import { ArrowRight, GraduationCap, Award, CheckCircle2, Sparkles } from "lucide-react";
 
 export function AboutSection() {
+  const [resumeOpen, setResumeOpen] = useState(false);
+
   return (
-    <section id="about" className="py-16 sm:py-20 md:py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Large Cosmic Night Glass Panel with Glowing Border */}
-        <div className="relative rounded-[2.5rem] sm:rounded-[3.5rem] bg-space-850/80 border border-purple-500/30 p-6 sm:p-10 md:p-12 lg:p-16 shadow-[0_0_50px_rgba(168,85,247,0.15)] backdrop-blur-2xl text-white overflow-hidden">
-          {/* Ambient Glowing Gradients inside panel */}
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-pink-600/10 blur-[100px] pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-purple-600/15 blur-[100px] pointer-events-none" />
+    <>
+      <section id="about" className="py-14 sm:py-20 relative overflow-hidden select-none">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+            
+            {/* ================= LEFT CARD: LIME/YELLOW "FOCUS DISCIPLINE CONSISTENCY" ================= */}
+            <div className="lg:col-span-5 relative rounded-3xl sm:rounded-[32px] bg-[#CCFF00] p-6 sm:p-8 text-[#0A0514] border-4 border-[#0A0514] shadow-[8px_8px_0px_#0A0514] flex flex-col justify-between overflow-hidden group hover:-translate-y-1 hover:shadow-[12px_12px_0px_#0A0514] transition-all duration-300">
+              
+              {/* Top Banner Tag: FOCUS DISCIPLINE CONSISTENCY */}
+              <div className="relative z-10">
+                <div className="inline-block px-3.5 py-1.5 rounded-xl bg-[#0A0514] text-[#CCFF00] font-display font-black text-xs sm:text-sm uppercase tracking-wider mb-4 rotate-[-2deg] shadow-md">
+                  FOCUS • DISCIPLINE • CONSISTENCY
+                </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
-            {/* Left Column: Greeting, Bio, Education Details & CTA */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left">
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-950/60 border border-purple-500/30 text-xs font-mono font-bold uppercase tracking-wider text-pink-300 mb-4 shadow-[0_0_12px_rgba(168,85,247,0.2)]">
-                <Sparkles className="w-3.5 h-3.5 text-pink-400" />
-                <span>ABOUT SURAJ VISHWAKARMA</span>
-              </div>
-
-              {/* Main Heading */}
-              <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white tracking-tight uppercase leading-[1.08] mb-6">
-                DRIVEN BY PASSION. <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-500 to-purple-400">
-                  ENGINEERED WITH
-                </span>{" "}
-                DISCIPLINE.
-              </h2>
-
-              {/* Bio Paragraphs */}
-              <p className="text-base sm:text-lg text-purple-100/90 leading-relaxed font-normal mb-6 max-w-xl">
-                I&apos;m a Full-Stack Developer with a deep commitment to engineering high-performance web applications, scalable RESTful microservices, and practical AI integrations. I bridge the gap between intuitive user experiences and dependable backend architecture.
-              </p>
-
-              {/* Academic Details Card: Abhinav College, Bhayandar */}
-              <div className="bg-space-900/80 border border-purple-500/30 rounded-2xl p-5 mb-8 w-full max-w-xl shadow-[0_0_20px_rgba(168,85,247,0.1)] hover:border-pink-500/50 transition-all">
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <div className="flex items-center gap-2 text-pink-400 font-display font-bold text-xs sm:text-sm tracking-wide">
-                    <GraduationCap className="w-5 h-5 text-pink-400" />
-                    <span>ACADEMIC FOUNDATION • ABHINAV COLLEGE</span>
-                  </div>
-                  <span className="px-2.5 py-0.5 rounded-full bg-pink-950/80 border border-pink-500/40 text-[10px] font-mono font-bold text-pink-300">
-                    MUMBAI UNIVERSITY
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-display font-black text-xs uppercase tracking-widest text-[#0A0514]/80">
+                    ACADEMIC EXCELLENCE
                   </span>
                 </div>
-                <div className="text-xs sm:text-sm text-purple-200/90 space-y-2">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <p>
-                      <strong className="text-white">M.Sc. Information Technology:</strong> Abhinav College, Bhayandar (Currently Pursuing, 2025 — Present)
-                    </p>
+
+                <h3 className="font-display font-black text-3xl sm:text-4xl text-[#0A0514] leading-[1.05] tracking-tight uppercase mb-2">
+                  9.04 CGPA <br />
+                  <span className="underline decoration-4 decoration-[#0A0514]">DISTINCTION</span>
+                </h3>
+
+                <p className="font-display font-bold text-xs sm:text-sm text-[#0A0514]/90 max-w-xs leading-relaxed">
+                  B.Sc. IT &amp; M.Sc. IT Scholar at Abhinav College (Affiliated with University of Mumbai).
+                </p>
+              </div>
+
+              {/* Developer Sketch Doodle with Crown (Matches the reference character sketch!) */}
+              <div className="relative mt-6 pt-4 border-t-2 border-[#0A0514]/20 flex items-center justify-between">
+                <div className="relative flex items-center gap-3">
+                  {/* Avatar Circle with Hand-Drawn Crown */}
+                  <div className="relative">
+                    <div className="absolute -top-4 -left-1 z-20">
+                      <DoodleCrownYellow className="w-8 h-6 text-[#FFD52E]" />
+                    </div>
+                    <div className="w-16 h-16 rounded-2xl bg-[#0A0514] overflow-hidden border-2 border-[#0A0514] p-1 flex items-center justify-center">
+                      <Image
+                        src="/images/suraj-portrait.jpg"
+                        alt="Suraj Vishwakarma"
+                        width={60}
+                        height={60}
+                        className="rounded-xl object-cover grayscale contrast-125"
+                      />
+                    </div>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-pink-400 shrink-0 mt-0.5" />
-                    <p>
-                      <strong className="text-white">B.Sc. Information Technology:</strong> Graduated with <strong className="text-pink-300">9.04 CGPA (A Grade)</strong> honors from Abhinav College (2022 — 2025)
-                    </p>
+
+                  <div>
+                    <h4 className="font-display font-black text-base text-[#0A0514]">
+                      Suraj Vishwakarma
+                    </h4>
+                    <span className="font-mono text-xs font-bold text-[#0A0514]/80">
+                      Full-Stack Developer
+                    </span>
+                  </div>
+                </div>
+
+                {/* Starburst badge */}
+                <div className="w-12 h-12 rounded-full bg-[#0A0514] text-[#CCFF00] flex items-center justify-center font-display font-black text-[10px] uppercase text-center p-1 rotate-12 shadow-sm">
+                  100% PASSION
+                </div>
+              </div>
+
+            </div>
+
+            {/* ================= RIGHT CARD: DARK "ABOUT ME" ================= */}
+            <div className="lg:col-span-7 relative rounded-3xl sm:rounded-[32px] bg-[#111322] border-2 border-white/10 hover:border-purple-500/50 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col justify-between transition-all duration-300">
+              
+              {/* Crown doodle top-left */}
+              <div className="absolute top-6 right-6 hidden sm:block pointer-events-none">
+                <DoodleCrownYellow className="w-10 h-8 text-[#FFD52E] opacity-70" />
+              </div>
+
+              <div>
+                <div className="flex items-center gap-2 mb-3">
+                  <Sparkles className="w-4 h-4 text-[#CCFF00]" />
+                  <span className="font-mono text-xs font-bold uppercase tracking-widest text-purple-300">
+                    DISCOVER MY STORY
+                  </span>
+                </div>
+
+                <h3 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight uppercase mb-4">
+                  ABOUT ME
+                </h3>
+
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed font-normal mb-5">
+                  I&apos;m <strong className="text-white font-bold">Suraj Vishwakarma</strong>, a Full-Stack Developer and M.Sc. IT Scholar based in Bhayandar, Mumbai. I love turning complex architectural problems into playful, robust, and impactful digital experiences that deliver real performance.
+                </p>
+
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed font-normal mb-6">
+                  With a solid 9.04 CGPA honors background from Abhinav College (University of Mumbai), I pair rigorous backend principles in Python &amp; Node.js with modern frontend craftsmanship in React, Next.js 14, and TypeScript.
+                </p>
+
+                {/* Key Stat Pills */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-left">
+                    <span className="block font-display font-black text-base text-[#CCFF00]">
+                      9.04 CGPA
+                    </span>
+                    <span className="text-[10px] text-gray-400 uppercase font-mono">
+                      Distinction Honors
+                    </span>
+                  </div>
+
+                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-left">
+                    <span className="block font-display font-black text-base text-cyan-300">
+                      M.Sc. IT
+                    </span>
+                    <span className="text-[10px] text-gray-400 uppercase font-mono">
+                      Currently Pursuing
+                    </span>
+                  </div>
+
+                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-left col-span-2 sm:col-span-1">
+                    <span className="block font-display font-black text-base text-pink-400">
+                      Available
+                    </span>
+                    <span className="text-[10px] text-gray-400 uppercase font-mono">
+                      Full-Time &amp; Freelance
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {/* CTA Button */}
-              <div className="flex items-center gap-4">
-                <a
-                  href="#skills"
-                  className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white font-display font-black text-xs sm:text-sm tracking-wider uppercase shadow-[0_0_20px_rgba(236,72,153,0.4)] hover:shadow-[0_0_30px_rgba(236,72,153,0.7)] hover:scale-105 active:scale-95 transition-all duration-200"
+              {/* Bottom Row with "Know More About Me ➔" and Purple Brush Stroke Doodle */}
+              <div className="flex items-center justify-between pt-4 border-t border-white/10 relative">
+                <button
+                  type="button"
+                  onClick={() => setResumeOpen(true)}
+                  className="group inline-flex items-center gap-2 font-display font-black text-sm sm:text-base text-[#CCFF00] hover:text-white transition-colors"
                 >
-                  <span>EXPLORE MY TECH STACK</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
-                </a>
-              </div>
-            </div>
-
-            {/* Right Column: Currently Exploring Cosmic Focus Card */}
-            <div className="lg:col-span-5 flex justify-center items-center mt-4 lg:mt-0">
-              <div className="relative w-full max-w-md bg-space-900/90 text-white rounded-3xl border border-purple-500/40 p-6 sm:p-8 shadow-[0_0_35px_rgba(168,85,247,0.2)] hover:border-pink-500/50 hover:shadow-[0_0_45px_rgba(236,72,153,0.3)] transition-all duration-300">
-                {/* Header */}
-                <div className="flex items-center justify-between border-b border-purple-500/25 pb-4 mb-5">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-pink-400 animate-pulse" />
-                    <h3 className="font-display font-black text-base sm:text-lg text-white uppercase tracking-wider">
-                      CURRENTLY EXPLORING:
-                    </h3>
-                  </div>
-                  <span className="font-mono text-[10px] font-bold text-pink-300 bg-pink-950/60 px-2.5 py-0.5 rounded-full border border-pink-500/30">
-                    2026 FOCUS
+                  <span>Know More About Me</span>
+                  <span className="w-6 h-6 rounded-full bg-[#CCFF00] text-[#0A0514] flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all">
+                    <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
                   </span>
-                </div>
+                </button>
 
-                {/* Checklist */}
-                <ul className="space-y-3.5 font-medium text-xs sm:text-sm text-purple-200/85">
-                  <li className="flex items-start gap-3 hover:text-white transition-colors group">
-                    <span className="text-base p-1.5 rounded-lg bg-purple-950/60 border border-purple-500/30 shrink-0">🚀</span>
-                    <div>
-                      <strong className="text-white font-bold block">Next.js 14/15 App Router:</strong> Server components, streaming &amp; static optimization
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3 hover:text-white transition-colors group">
-                    <span className="text-base p-1.5 rounded-lg bg-pink-950/60 border border-pink-500/30 shrink-0">⚡</span>
-                    <div>
-                      <strong className="text-white font-bold block">Backend Architecture:</strong> RESTful microservices, auth pipelines &amp; Node.js/Express
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3 hover:text-white transition-colors group">
-                    <span className="text-base p-1.5 rounded-lg bg-red-950/60 border border-red-500/30 shrink-0">🤖</span>
-                    <div>
-                      <strong className="text-white font-bold block">AI/ML &amp; Python FastAPI:</strong> Anomaly detection, model integration &amp; async APIs
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3 hover:text-white transition-colors group">
-                    <span className="text-base p-1.5 rounded-lg bg-purple-950/60 border border-purple-500/30 shrink-0">🗄️</span>
-                    <div>
-                      <strong className="text-white font-bold block">Database Engineering:</strong> MongoDB &amp; MySQL schema design, indexing &amp; CRUD
-                    </div>
-                  </li>
-                </ul>
-
-                {/* Footer Note with Heart */}
-                <div className="flex justify-between items-center pt-4 mt-5 border-t border-purple-500/20">
-                  <span className="font-handwriting text-sm sm:text-base font-bold text-pink-300">
-                    Always building &amp; learning ✨
-                  </span>
-                  <DoodleHeart className="w-5 h-5 text-pink-500 animate-pulse hover:scale-125 transition-transform cursor-pointer" />
+                {/* Purple Brush Stroke Doodle on bottom-right (matches reference!) */}
+                <div className="pointer-events-none hidden sm:block">
+                  <DoodlePurpleBrush className="w-16 h-8 text-purple-400 opacity-80" />
                 </div>
               </div>
+
             </div>
+
           </div>
+
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Resume Modal */}
+      {resumeOpen && <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />}
+    </>
   );
 }

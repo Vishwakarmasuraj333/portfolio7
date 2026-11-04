@@ -5,14 +5,19 @@ import Image from "next/image";
 import {
   DoodleStar,
   DoodleHeart,
+  DoodleCrownYellow,
+  DoodleClapperboard,
+  DoodleLightningBolt,
+  DoodleSmileySticker,
 } from "./Doodles";
-import { Sparkles, Code2, Laptop, User } from "lucide-react";
+import { Sparkles, Code2, Laptop, User, Palette } from "lucide-react";
+import { IllustratedAnimeDeveloper } from "../illustrations/IllustratedAnimeDeveloper";
 
 export function InteractiveHeroPortrait() {
   const cardRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const [imageType, setImageType] = useState<"3d-boy" | "portrait">("3d-boy");
+  const [imageType, setImageType] = useState<"anime" | "3d-boy" | "portrait">("anime");
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -39,31 +44,43 @@ export function InteractiveHeroPortrait() {
 
   return (
     <div className="flex flex-col items-center w-full">
-      {/* Visual Sub-Mode Switcher: 3D Boy Coding vs Studio Portrait */}
+      {/* Visual Sub-Mode Switcher: Illustrated Comic Dev vs 3D Boy vs Studio Portrait */}
       <div className="inline-flex items-center p-1 rounded-full bg-space-900/95 border border-purple-500/35 backdrop-blur-md mb-3 shadow-md z-30">
         <button
           type="button"
+          onClick={() => setImageType("anime")}
+          className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-display font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+            imageType === "anime"
+              ? "bg-[#CCFF00] text-[#0A0514] font-black shadow-[0_0_15px_rgba(204,255,0,0.5)]"
+              : "text-purple-300 hover:text-white"
+          }`}
+        >
+          <Palette className="w-3.5 h-3.5" />
+          <span>Comic Dev</span>
+        </button>
+        <button
+          type="button"
           onClick={() => setImageType("3d-boy")}
-          className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-display font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+          className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-display font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
             imageType === "3d-boy"
               ? "bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white shadow-[0_0_12px_rgba(236,72,153,0.5)]"
               : "text-purple-300 hover:text-white"
           }`}
         >
           <Laptop className="w-3.5 h-3.5" />
-          <span>3D Coder Boy</span>
+          <span>3D Coder</span>
         </button>
         <button
           type="button"
           onClick={() => setImageType("portrait")}
-          className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-display font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+          className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-display font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
             imageType === "portrait"
               ? "bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white shadow-[0_0_12px_rgba(236,72,153,0.5)]"
               : "text-purple-300 hover:text-white"
           }`}
         >
           <User className="w-3.5 h-3.5" />
-          <span>Studio Portrait</span>
+          <span>Studio Photo</span>
         </button>
       </div>
 
@@ -93,32 +110,38 @@ export function InteractiveHeroPortrait() {
           />
 
           {/* Outer Arched Border Frame */}
-          <div className="relative w-[290px] xs:w-[320px] sm:w-[340px] h-[400px] xs:h-[430px] sm:h-[450px] rounded-t-[8rem] sm:rounded-t-[8.5rem] rounded-b-[3rem] p-1.5 bg-gradient-to-b from-red-500 via-pink-500 to-purple-600 shadow-[0_0_40px_rgba(236,72,153,0.35)] transition-all duration-300">
+          <div className="relative w-[290px] xs:w-[320px] sm:w-[340px] h-[400px] xs:h-[430px] sm:h-[450px] rounded-t-[8rem] sm:rounded-t-[8.5rem] rounded-b-[3rem] p-1.5 bg-gradient-to-b from-purple-500 via-pink-500 to-red-500 shadow-[0_0_40px_rgba(168,85,247,0.35)] transition-all duration-300">
             {/* Inner Arched Card */}
             <div className="relative w-full h-full rounded-t-[7.6rem] sm:rounded-t-[8.1rem] rounded-b-[2.7rem] overflow-hidden bg-space-900 border-2 border-purple-500/30">
               {/* Background gradient behind developer silhouette */}
               <div className="absolute inset-0 bg-gradient-to-b from-purple-950/60 via-space-900 to-space-950" />
 
-              {/* Developer Image: 3D Boy Coding vs Studio Portrait */}
-              <Image
-                src={
-                  imageType === "3d-boy"
-                    ? "/images/boy-coding-3d.png"
-                    : "/images/suraj-portrait.jpg"
-                }
-                alt="Suraj Vishwakarma — Full-Stack Developer"
-                fill
-                priority
-                sizes="(max-width: 640px) 320px, 340px"
-                className={`object-cover object-top transition-transform duration-700 ease-out ${
-                  isHovered ? "scale-108" : "scale-100"
-                }`}
-              />
+              {/* Developer Image: Comic Illustrated Dev vs 3D Boy vs Studio Portrait */}
+              {imageType === "anime" ? (
+                <div className="relative w-full h-full p-2 flex items-center justify-center">
+                  <IllustratedAnimeDeveloper />
+                </div>
+              ) : (
+                <Image
+                  src={
+                    imageType === "3d-boy"
+                      ? "/images/boy-coding-3d.png"
+                      : "/images/suraj-portrait.jpg"
+                  }
+                  alt="Suraj Vishwakarma — Full-Stack Developer"
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 320px, 340px"
+                  className={`object-cover object-top transition-transform duration-700 ease-out ${
+                    isHovered ? "scale-108" : "scale-100"
+                  }`}
+                />
+              )}
 
               {/* Bottom Dark Gradient Fade */}
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0A0514] via-[#0A0514]/70 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0A0514] via-[#0A0514]/70 to-transparent pointer-events-none" />
 
-              {/* Bottom Center Title Pill: "FULL-STACK & REACT.JS DEVELOPER" */}
+              {/* Bottom Center Title Pill */}
               <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 px-3.5 py-1.5 rounded-full bg-space-900/95 border border-pink-500/40 text-pink-300 text-[11px] font-display font-black tracking-wider uppercase whitespace-nowrap shadow-[0_0_15px_rgba(236,72,153,0.3)] backdrop-blur-md flex items-center gap-1.5">
                 <Code2 className="w-3.5 h-3.5 text-pink-400" />
                 <span>Full-Stack &amp; React.js Developer</span>
@@ -135,11 +158,11 @@ export function InteractiveHeroPortrait() {
             }`}
             style={{ transform: "translateZ(30px)" }}
           >
-            <div className="relative bg-space-900/95 border-2 border-pink-500/60 px-3.5 py-1.5 rounded-2xl shadow-[0_0_18px_rgba(236,72,153,0.4)] backdrop-blur-md">
-              <span className="font-display font-black text-xs text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-300 to-purple-300 tracking-wider uppercase flex items-center gap-1">
-                HI! I&apos;M SURAJ <Sparkles className="w-3 h-3 text-pink-400" />
+            <div className="relative bg-space-900/95 border-2 border-[#38BDF8] px-3.5 py-1.5 rounded-2xl shadow-[0_0_18px_rgba(56,189,248,0.5)] backdrop-blur-md">
+              <span className="font-display font-black text-xs text-[#38BDF8] tracking-wider uppercase flex items-center gap-1">
+                HI! I&apos;M SURAJ <Sparkles className="w-3 h-3 text-[#FFD52E]" />
               </span>
-              <div className="absolute -bottom-1.5 left-4 w-3 h-3 bg-space-900 border-r-2 border-b-2 border-pink-500/60 rotate-45" />
+              <div className="absolute -bottom-1.5 left-4 w-3 h-3 bg-space-900 border-r-2 border-b-2 border-[#38BDF8] rotate-45" />
             </div>
           </div>
 
@@ -161,7 +184,20 @@ export function InteractiveHeroPortrait() {
             </div>
           </div>
 
-          {/* 3. MID-LEFT: React.js & Next.js Yellow/Cosmic Pill */}
+          {/* 3. Floating Clapperboard Sticker */}
+          <div
+            className="absolute -bottom-2 -right-4 sm:-right-8 z-30 pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.6)] animate-bounce"
+            style={{ animationDuration: "3s" }}
+          >
+            <DoodleClapperboard className="w-12 h-12" />
+          </div>
+
+          {/* 4. Yellow Hand-drawn Star */}
+          <div className="absolute top-2 -right-1 z-20 pointer-events-none">
+            <DoodleStar className="w-6 h-6 text-[#FFD52E] animate-spinSlow" />
+          </div>
+
+          {/* 5. MID-LEFT: React.js & Next.js Yellow/Cosmic Pill */}
           <div
             className={`absolute top-24 -left-4 sm:-left-8 z-20 transition-all duration-300 ${
               isHovered ? "-translate-x-2 rotate-[-4deg]" : "rotate-[-2deg]"
@@ -174,20 +210,20 @@ export function InteractiveHeroPortrait() {
             </div>
           </div>
 
-          {/* 4. MID-RIGHT: Full-Stack Pro Pill */}
+          {/* 6. MID-RIGHT: 9.04 CGPA Distinction Honors Pill */}
           <div
             className={`absolute top-28 -right-4 sm:-right-8 z-20 transition-all duration-300 ${
               isHovered ? "translate-x-2 rotate-[4deg]" : "rotate-[2deg]"
             }`}
             style={{ transform: "translateZ(25px)" }}
           >
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-space-850/95 border border-pink-500/50 text-pink-300 font-display font-black text-[11px] shadow-[0_0_14px_rgba(236,72,153,0.35)] backdrop-blur-md">
-              <span>Full-Stack Pro</span>
-              <span className="text-pink-400">✦</span>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-space-850/95 border border-[#CCFF00] text-[#CCFF00] font-display font-black text-[11px] shadow-[0_0_14px_rgba(204,255,0,0.4)] backdrop-blur-md">
+              <span>9.04 CGPA Honors</span>
+              <span className="text-[#CCFF00]">🏆</span>
             </div>
           </div>
 
-          {/* 5. LOWER-LEFT: Python & FastAPI Pill */}
+          {/* 7. LOWER-LEFT: Python & FastAPI Pill */}
           <div
             className={`absolute bottom-20 -left-3 sm:-left-6 z-20 transition-all duration-300 ${
               isHovered ? "-translate-x-1.5 rotate-[3deg]" : "-rotate-[1deg]"
@@ -199,7 +235,7 @@ export function InteractiveHeroPortrait() {
             </div>
           </div>
 
-          {/* 6. LOWER-RIGHT: Clean Code Heart Badge */}
+          {/* 8. LOWER-RIGHT: Clean Code Heart Badge */}
           <div
             className={`absolute bottom-14 -right-3 sm:-right-6 z-20 transition-all duration-300 ${
               isHovered ? "translate-x-1.5 scale-110 rotate-[-4deg]" : "rotate-[-2deg]"
@@ -211,6 +247,7 @@ export function InteractiveHeroPortrait() {
               <DoodleHeart className="w-3.5 h-3.5 text-white" />
             </div>
           </div>
+
         </div>
       </div>
     </div>
