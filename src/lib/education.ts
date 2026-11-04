@@ -11,3 +11,4 @@ export const educationData: EducationEntry[] = educationList.map((item, idx) => 
 }));
 
 export default educationData;
+

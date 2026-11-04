@@ -1,31 +1,18 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import {
   DoodleStar,
-  DoodleSmiley,
   DoodleHeart,
-  DoodleStarburstBlue,
 } from "./Doodles";
-import { Sparkles, Terminal, Code2, Laptop, User } from "lucide-react";
+import { Sparkles, Code2, Laptop, User } from "lucide-react";
 
 export function InteractiveHeroPortrait() {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const [blink, setBlink] = useState(false);
   const [imageType, setImageType] = useState<"3d-boy" | "portrait">("3d-boy");
-
-  // Automatic gentle blink effect when idle
-  useEffect(() => {
-    const blinkInterval = setInterval(() => {
-      setBlink(true);
-      setTimeout(() => setBlink(false), 180);
-    }, 3600);
-    return () => clearInterval(blinkInterval);
-  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -39,11 +26,6 @@ export function InteractiveHeroPortrait() {
     const tiltX = ((y - centerY) / centerY) * -8;
     const tiltY = ((x - centerX) / centerX) * 8;
     setTilt({ x: tiltX, y: tiltY });
-
-    // Eye pupil offset calculation (-4.5px to +4.5px)
-    const pupilX = Math.max(-4.5, Math.min(4.5, ((x - centerX) / centerX) * 4.5));
-    const pupilY = Math.max(-4.5, Math.min(4.5, ((y - centerY) / centerY) * 4.5));
-    setMousePos({ x: pupilX, y: pupilY });
   };
 
   const handleMouseEnter = () => {
@@ -53,35 +35,34 @@ export function InteractiveHeroPortrait() {
   const handleMouseLeave = () => {
     setIsHovered(false);
     setTilt({ x: 0, y: 0 });
-    setMousePos({ x: 0, y: 0 });
   };
 
   return (
     <div className="flex flex-col items-center w-full">
       {/* Visual Sub-Mode Switcher: 3D Boy Coding vs Studio Portrait */}
-      <div className="inline-flex items-center p-1 rounded-full bg-space-900/95 border border-purple-500/35 backdrop-blur-md mb-2 shadow-md z-30">
+      <div className="inline-flex items-center p-1 rounded-full bg-space-900/95 border border-purple-500/35 backdrop-blur-md mb-3 shadow-md z-30">
         <button
           type="button"
           onClick={() => setImageType("3d-boy")}
-          className={`flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-display font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+          className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-display font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
             imageType === "3d-boy"
               ? "bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white shadow-[0_0_12px_rgba(236,72,153,0.5)]"
               : "text-purple-300 hover:text-white"
           }`}
         >
-          <Laptop className="w-3 h-3" />
-          <span>3D Boy Coding</span>
+          <Laptop className="w-3.5 h-3.5" />
+          <span>3D Coder Boy</span>
         </button>
         <button
           type="button"
           onClick={() => setImageType("portrait")}
-          className={`flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-display font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+          className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-display font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
             imageType === "portrait"
               ? "bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white shadow-[0_0_12px_rgba(236,72,153,0.5)]"
               : "text-purple-300 hover:text-white"
           }`}
         >
-          <User className="w-3 h-3" />
+          <User className="w-3.5 h-3.5" />
           <span>Studio Portrait</span>
         </button>
       </div>
@@ -111,7 +92,7 @@ export function InteractiveHeroPortrait() {
             }`}
           />
 
-          {/* Outer Arched Border Frame matching reference layout */}
+          {/* Outer Arched Border Frame */}
           <div className="relative w-[290px] xs:w-[320px] sm:w-[340px] h-[400px] xs:h-[430px] sm:h-[450px] rounded-t-[8rem] sm:rounded-t-[8.5rem] rounded-b-[3rem] p-1.5 bg-gradient-to-b from-red-500 via-pink-500 to-purple-600 shadow-[0_0_40px_rgba(236,72,153,0.35)] transition-all duration-300">
             {/* Inner Arched Card */}
             <div className="relative w-full h-full rounded-t-[7.6rem] sm:rounded-t-[8.1rem] rounded-b-[2.7rem] overflow-hidden bg-space-900 border-2 border-purple-500/30">
@@ -145,9 +126,9 @@ export function InteractiveHeroPortrait() {
             </div>
           </div>
 
-          {/* ------------------- INTERACTIVE FLOATING STICKERS & BADGES ------------------- */}
+          {/* ------------------- PRO STICKERS & FLOATING BADGES ------------------- */}
 
-          {/* 1. TOP-RIGHT: Speech Bubble "HI! I'M SURAJ ✦" with Hover Tail */}
+          {/* 1. TOP-RIGHT: Speech Bubble "HI! I'M SURAJ ✦" */}
           <div
             className={`absolute -top-3 -right-2 xs:-right-4 sm:-right-6 z-30 transition-all duration-300 ${
               isHovered ? "scale-110 -rotate-2" : "rotate-3"
@@ -158,129 +139,24 @@ export function InteractiveHeroPortrait() {
               <span className="font-display font-black text-xs text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-300 to-purple-300 tracking-wider uppercase flex items-center gap-1">
                 HI! I&apos;M SURAJ <Sparkles className="w-3 h-3 text-pink-400" />
               </span>
-              {/* Speech bubble tail pointer */}
               <div className="absolute -bottom-1.5 left-4 w-3 h-3 bg-space-900 border-r-2 border-b-2 border-pink-500/60 rotate-45" />
             </div>
           </div>
 
-          {/* 2. TOP-LEFT: INTERACTIVE EYES MASCOT STICKER (LOOK & OPEN ANIMATION) */}
+          {/* 2. TOP-LEFT: Clean Professional Tech Badge */}
           <div
             className={`absolute -top-4 -left-2 xs:-left-4 sm:-left-6 z-30 transition-all duration-300 ${
-              isHovered ? "scale-115 rotate-6" : "-rotate-6"
+              isHovered ? "scale-110 -rotate-3" : "-rotate-6"
             }`}
             style={{ transform: "translateZ(35px)" }}
-            title={isHovered ? "Watching you move! 👀" : "Hover me to see eyes open!"}
           >
-            <div className="relative bg-space-900/95 border-2 border-purple-500/70 p-2 sm:p-2.5 rounded-2xl shadow-[0_0_20px_rgba(168,85,247,0.45)] backdrop-blur-md flex items-center gap-2 group/eyes cursor-pointer">
-              {/* Animated SVG Eyes that open wide and look at mouse */}
-              <svg
-                viewBox="0 0 64 32"
-                className="w-11 h-6 select-none"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Left Eye Sclera (White) */}
-                <rect
-                  x="4"
-                  y="4"
-                  width="24"
-                  height="24"
-                  rx="12"
-                  fill="#FFFFFF"
-                  stroke="#151515"
-                  strokeWidth="1.5"
-                />
-                {/* Left Eye Pupil (Tracks mouse, expands on hover) */}
-                <g
-                  style={{
-                    transform: `translate(${mousePos.x}px, ${mousePos.y}px)`,
-                    transition: "transform 0.08s ease-out",
-                  }}
-                >
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r={isHovered ? 6 : 4.5}
-                    fill="#0A0514"
-                  />
-                  {/* Specular Light Highlight */}
-                  <circle
-                    cx="18"
-                    cy="14"
-                    r={isHovered ? 2 : 1.5}
-                    fill="#FFFFFF"
-                  />
-                </g>
-
-                {/* Right Eye Sclera (White) */}
-                <rect
-                  x="36"
-                  y="4"
-                  width="24"
-                  height="24"
-                  rx="12"
-                  fill="#FFFFFF"
-                  stroke="#151515"
-                  strokeWidth="1.5"
-                />
-                {/* Right Eye Pupil (Tracks mouse, expands on hover) */}
-                <g
-                  style={{
-                    transform: `translate(${mousePos.x}px, ${mousePos.y}px)`,
-                    transition: "transform 0.08s ease-out",
-                  }}
-                >
-                  <circle
-                    cx="48"
-                    cy="16"
-                    r={isHovered ? 6 : 4.5}
-                    fill="#0A0514"
-                  />
-                  {/* Specular Light Highlight */}
-                  <circle
-                    cx="50"
-                    cy="14"
-                    r={isHovered ? 2 : 1.5}
-                    fill="#FFFFFF"
-                  />
-                </g>
-
-                {/* Dynamic Animated Eyelids (Opens wide on hover, blinks when idle) */}
-                <rect
-                  x="3"
-                  y="3"
-                  width="26"
-                  height={
-                    blink
-                      ? 26
-                      : isHovered
-                      ? 0
-                      : 8
-                  }
-                  rx="6"
-                  fill="#A855F7"
-                  className="transition-all duration-150"
-                />
-                <rect
-                  x="35"
-                  y="3"
-                  width="26"
-                  height={
-                    blink
-                      ? 26
-                      : isHovered
-                      ? 0
-                      : 8
-                  }
-                  rx="6"
-                  fill="#A855F7"
-                  className="transition-all duration-150"
-                />
-              </svg>
-
-              {/* Sticker Caption */}
-              <span className="font-mono text-[10px] font-extrabold uppercase text-purple-300 tracking-wider pr-1">
-                {isHovered ? "EYES OPEN! 👀" : "CODING 💻"}
+            <div className="relative bg-space-900/95 border-2 border-purple-500/70 px-3.5 py-1.5 rounded-2xl shadow-[0_0_20px_rgba(168,85,247,0.45)] backdrop-blur-md flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </span>
+              <span className="font-mono text-[11px] font-black uppercase text-purple-200 tracking-wider">
+                ⚡ NEXT.JS 14 &amp; AI
               </span>
             </div>
           </div>
